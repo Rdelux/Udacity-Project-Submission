@@ -56,5 +56,7 @@ There are a number of shortcomings associated with the current method.  The pipe
 ### 3. Possible improvements to the pipeline
 
 One potential improvement to the pipeline is to use high order polynomial to estimate the lanes.  The Hough Transform can be used to identify the end points of line segments, and then by using a second or third order polynomial, most of the traffic lanes can be approximated by a continuous line.
+
 In order to further reduce the error of the lines drawn on the image, one can use the relational information from both the left and right lane.  One possibility is to assume that the road has a constant width so that the distance between the left and right lane should be a linear function of y in the images.
+
 Regarding the changes in lighting condition, I would suggest to set the threshold for the Canny function to be a function of  the average brightness value of the entire picture, so that the pipeline will be more adaptive.
