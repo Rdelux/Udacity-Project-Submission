@@ -158,26 +158,26 @@ The code for determining the top 5 softmax probabilities for each of the 5 image
 |  ![alt text][image7]  |   0.1%    |   "Speed limit (70km/h)"   |
 |  ![alt text][image7]  |   0.0%    |   "Speed limit (100km/h)"   |
 |   |   |   |
-|  ![alt text][image8]  |   84.0%   |   "Speed limit (50km/h)"   |
-|  ![alt text][image8]  |   15.8%   |   "Speed limit (30km/h)"   |
-|  ![alt text][image8]  |   0.1%    |   "Speed limit (80km/h)"   |
-|  ![alt text][image8]  |   0.1%    |   "Speed limit (70km/h)"   |
-|  ![alt text][image8]  |   0.0%    |   "Speed limit (100km/h)"   |
+|  ![alt text][image8]  |   96.9%   |   "Right-of-way at the next intersection"   |
+|  ![alt text][image8]  |   3.0%   |   "Beware of ice/snow"   |
+|  ![alt text][image8]  |   0.0%    |   "Double curve"   |
+|  ![alt text][image8]  |   0.0%    |   "Pedestrians"   |
+|  ![alt text][image8]  |   0.0%    |   "Children crossing"   |
 |   |   |   |
-|  ![alt text][image9]  |   84.0%   |   "Speed limit (50km/h)"   |
-|  ![alt text][image9]  |   15.8%   |   "Speed limit (30km/h)"   |
-|  ![alt text][image9]  |   0.1%    |   "Speed limit (80km/h)"   |
-|  ![alt text][image9]  |   0.1%    |   "Speed limit (70km/h)"   |
-|  ![alt text][image9]  |   0.0%    |   "Speed limit (100km/h)"   |
+|  ![alt text][image9]  |   99.9%   |   "Priority road"   |
+|  ![alt text][image9]  |   0.0%   |   "No entry"   |
+|  ![alt text][image9]  |   0.0%    |   "No passing for vehicles over 3.5 metric tons"   |
+|  ![alt text][image9]  |   0.0%    |   "End of all speed and passing limits"   |
+|  ![alt text][image9]  |   0.0%    |   "Stop"   |
 |   |   |   |
-|  ![alt text][image10]  |   84.0%   |   "Speed limit (50km/h)"   |
-|  ![alt text][image10]  |   15.8%   |   "Speed limit (30km/h)"   |
-|  ![alt text][image10]  |   0.1%    |   "Speed limit (80km/h)"   |
-|  ![alt text][image10]  |   0.1%    |   "Speed limit (70km/h)"   |
-|  ![alt text][image10]  |   0.0%    |   "Speed limit (100km/h)"   |
+|  ![alt text][image10]  |   99.1%   |   "No entry"   |
+|  ![alt text][image10]  |   0.9%   |   "Stop"   |
+|  ![alt text][image10]  |   0.0%    |   "Priority road"   |
+|  ![alt text][image10]  |   0.0%    |   "Speed limit (20km/h)"   |
+|  ![alt text][image10]  |   0.0%    |   "Speed limit (70km/h)"   |
 |   |   |   |
-|  ![alt text][image11]  |   84.0%   |   "Speed limit (50km/h)"   |
-|  ![alt text][image11]  |   15.8%   |   "Speed limit (30km/h)"   |
-|  ![alt text][image11]  |   0.1%    |   "Speed limit (80km/h)"   |
-|  ![alt text][image11]  |   0.1%    |   "Speed limit (70km/h)"   |
-|  ![alt text][image11]  |   0.0%    |   "Speed limit (100km/h)"   |
+|  ![alt text][image11]  |   63.1%   |   "Children crossing"   |
+|  ![alt text][image11]  |   23.4%   |   "Bicycles crossing"   |
+|  ![alt text][image11]  |   3.8%    |   "Road narrows on the right"   |
+|  ![alt text][image11]  |   2.4%    |   "Wild animals crossing"   |
+|  ![alt text][image11]  |   2.1%    |   "Beware of ice/snow"   |
