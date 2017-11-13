@@ -148,7 +148,36 @@ The model was able to correctly guess 5 of the 5 traffic signs, which gives an a
 
 ## 3. Top 5 Softmax Probabilities
 
-The code for determining the top 5 softmax probabilities for each of the 5 images I downloaded is located in the 12th cell of the Jupyter notebook.  The model predicts the traffic sign very well with high certainty for all cases.  Here are the results:
+The code for determining the top 5 softmax probabilities for each of the 5 images I downloaded is located in the 12th cell of the Jupyter notebook.  The model predicts the traffic sign very well with high certainty for all cases.  Here are the result summary:
 
-| Image			        |     Prediction	        					| 
-
+| Image			        |     Probability	        					|   Description of Traffic Sign    |
+|:-----------------:|:---------------------------------:|:---------------------------------|
+|  ![alt text][image7]  |   84.0%   |   "Speed limit (50km/h)"   |
+|  ![alt text][image7]  |   15.8%   |   "Speed limit (30km/h)"   |
+|  ![alt text][image7]  |   0.1%    |   "Speed limit (80km/h)"   |
+|  ![alt text][image7]  |   0.1%    |   "Speed limit (70km/h)"   |
+|  ![alt text][image7]  |   0.0%    |   "Speed limit (100km/h)"   |
+|   |   |   |
+|  ![alt text][image8]  |   84.0%   |   "Speed limit (50km/h)"   |
+|  ![alt text][image8]  |   15.8%   |   "Speed limit (30km/h)"   |
+|  ![alt text][image8]  |   0.1%    |   "Speed limit (80km/h)"   |
+|  ![alt text][image8]  |   0.1%    |   "Speed limit (70km/h)"   |
+|  ![alt text][image8]  |   0.0%    |   "Speed limit (100km/h)"   |
+|   |   |   |
+|  ![alt text][image9]  |   84.0%   |   "Speed limit (50km/h)"   |
+|  ![alt text][image9]  |   15.8%   |   "Speed limit (30km/h)"   |
+|  ![alt text][image9]  |   0.1%    |   "Speed limit (80km/h)"   |
+|  ![alt text][image9]  |   0.1%    |   "Speed limit (70km/h)"   |
+|  ![alt text][image9]  |   0.0%    |   "Speed limit (100km/h)"   |
+|   |   |   |
+|  ![alt text][image10]  |   84.0%   |   "Speed limit (50km/h)"   |
+|  ![alt text][image10]  |   15.8%   |   "Speed limit (30km/h)"   |
+|  ![alt text][image10]  |   0.1%    |   "Speed limit (80km/h)"   |
+|  ![alt text][image10]  |   0.1%    |   "Speed limit (70km/h)"   |
+|  ![alt text][image10]  |   0.0%    |   "Speed limit (100km/h)"   |
+|   |   |   |
+|  ![alt text][image11]  |   84.0%   |   "Speed limit (50km/h)"   |
+|  ![alt text][image11]  |   15.8%   |   "Speed limit (30km/h)"   |
+|  ![alt text][image11]  |   0.1%    |   "Speed limit (80km/h)"   |
+|  ![alt text][image11]  |   0.1%    |   "Speed limit (70km/h)"   |
+|  ![alt text][image11]  |   0.0%    |   "Speed limit (100km/h)"   |
