@@ -32,7 +32,7 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 
 ---
 
-Here is a link to my [project code and supporting materials](https://github.com/Rdelux/CarND-Traffic-Sign-Classifier-P2)
+Here is a link to my [project code and supporting materials](https://github.com/Rdelux/Udacity-Project-Submission/tree/master/Project_2)
 
 #### Data Set Summary & Exploration
 
