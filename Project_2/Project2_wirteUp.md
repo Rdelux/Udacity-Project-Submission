@@ -134,7 +134,7 @@ These images have different dimensions and resolutions when they were first down
 
 ## 2. Prediction Results
 
-Here are the results of the prediction:
+The code for making predictions using my final model is located in the 10th cell of the Jupyter notebook. And the code for analyzing the overall accuracy of the prediction is located in the 11th cell of the Jupyter notebook. Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -146,7 +146,9 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%, it's perfect! When there are more test cases, it is expected that the result will be lowered since the validation accuracy is 94%.  Nonetheless the test results compare favorably to the accuracy on the validation accuracy.
 
-## 3. Top 5 
+## 3. Top 5 Softmax Probabilities
 
+The code for determining the top 5 softmax probabilities for each of the 5 images I downloaded is located in the 12th cell of the Jupyter notebook.  The model predicts the traffic sign very well with high certainty for all cases.  Here are the results:
 
+| Image			        |     Prediction	        					| 
 
