@@ -181,3 +181,11 @@ The code for determining the top 5 softmax probabilities for each of the 5 image
 |  ![alt text][image11]  |   3.8%    |   "Road narrows on the right"   |
 |  ![alt text][image11]  |   2.4%    |   "Wild animals crossing"   |
 |  ![alt text][image11]  |   2.1%    |   "Beware of ice/snow"   |
+
+The first image is described as "Speed limit (50km/h)".  The model predicted it well, however the "3" and the "5" can be quite similar in different lighting condition and envirnomental factors, therefore there is a 15.8% that the sign can be a 30km/h sign.
+
+The second image is described as "Right-of-way at the next intersection".  The model has a high confidence of 96.9% of the correct sign description.
+
+The third image is described as "Priotity road".  The distintiveness and simplicity of the sign makes the model to be able to identify the sign easily with a confidence level of 99.9%.  This is also true for the fourth image, which is described as "No entry".
+
+The fifth image is described as "Children crossing".  This image is more complicated and it involves picture-like qualities and not just symbolic signs, therefore the prediction of the this sign is more difficult.  However, my model predicted the sign with a confidence level of 63.1%, which is enough to ensure the accuracy of the prediction.
