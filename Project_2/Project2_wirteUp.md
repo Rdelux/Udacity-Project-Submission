@@ -1,4 +1,4 @@
-## **Traffic Sign Classifier - by Richard Lee** 
+### **Traffic Sign Classifier - by Richard Lee** 
 
 ---
 
@@ -34,9 +34,9 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 
 Here is a link to my [project code and supporting materials](https://github.com/Rdelux/CarND-Traffic-Sign-Classifier-P2)
 
-### Data Set Summary & Exploration
+#### Data Set Summary & Exploration
 
-#### 1. Data set Summary
+## 1. Data set Summary
 
 The code and analysis for this project was done using python, numpy, pandas and other libraries associated with python. 
 
@@ -49,7 +49,8 @@ signs data set:
 * The shape of a traffic sign image is 32 x 32 and since it's a color image so it has 3 channels - 32 x 32 x 3
 * The number of unique classes/labels in the data set is 43 classes
 
-#### 2. Exploratory visualization of the dataset
+
+## 2. Exploratory visualization of the dataset
 
 Here is an exploratory visualization of the data set. It is a histogram showing the distribution of the 43 classes of traffic signs provided by the project:
 
@@ -59,7 +60,9 @@ Here is an exploratory visualization of the data set. It is a histogram showing 
 
 ![alt text][image3]
 
-### Design and Test a Model Architecture
+
+
+#### Design and Test a Model Architecture
 
 
 ## 1. Input Image Data and Image Processing
@@ -118,9 +121,9 @@ My final model results were:
 * test set accuracy of 93.3%
 * validation set accuracy of 93.7% (PASS)
 
-###Test a Model on New Images
 
-## Testing of the New Model
+
+#### Testing of the New Model
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 ## 1. Random German Traffic Signs
