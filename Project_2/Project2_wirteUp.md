@@ -1,4 +1,4 @@
-## **Traffic Sign Classifier** 
+## **Traffic Sign Classifier - by Richard Lee** 
 
 ---
 
@@ -61,7 +61,6 @@ Here is an exploratory visualization of the data set. It is a histogram showing 
 
 ### Design and Test a Model Architecture
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
 ## 1. Input Image Data and Image Processing
 After all the images are downloaded and imported to my codes, the next step is to preprocess the image data so that the deep neural network can maximize its effectiveness during training.  The goal is to minimize the training time but maximize the validation accuracy.  By preprocessing the training data set, the gradient descent technique used to gradually reduce the loss of the system will be more stable and capable to converge the accuracy to the desired amount, which is 93% accuracy for the validation data. 
@@ -100,18 +99,13 @@ My final model consisted of the following layers:
 | Dropout  |  Keep Probability = 50%  |  84  |  84 |
 | Layer 5: Fully Connected   |  84 -> 43 features  |  84  |  43 |
 
- 
-
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 ## 3. Model Training
 
 I first used the LeNet architecture as a base architecture for my model.  Since I can't reach the targeted validation accuracy of 93%, I started to examine the data in order to identify the opportunities of how to improve the LeNet model.  I considered additional convolution layers, patch size, regularization to address overfitting issues, batch size, learning rate, layer depth and data conditioning.  
 
-I used the default optimizer, which is the Adam algorithm to streamline stochastic gradient descent and backpropagation to minimize loss.  Batch size was increased from 128 to 160 in order to improve validation accuracy.  Although computationally more expensive, tensorflow-gpu works well with my GeForce 970M GPU graphics board, therefore hardware constraint was not an issue.  Learning rate was also lowered from 0.001 to 0.0009 in order to make the accuracy progression more stable and achieve higher accuracy.  I used 28 epochs to reach the desired accuracy.  I believe that the epoch and batch number can be lowered if the images are converted to grayscale and better normalization technique were used.  However, the targeted accuracy was achieved, therefore I stopped optimizing my model for the project but I will continue to find better ways to improve the model.
+I used the default optimizer, which is the Adam algorithm to streamline stochastic gradient descent and backpropagation to minimize loss.  Batch size was increased from 128 to 160 in order to improve validation accuracy.  Although computationally more expensive, tensorflow-gpu works well with my GeForce 970M GPU graphics board, therefore hardware constraint was not an issue.  Learning rate was also lowered from 0.001 to 0.0009 in order to make the accuracy progression more stable and achieve higher accuracy.  I used 20 epochs to reach the desired accuracy.  I believe that the epoch and batch number can be lowered if the images are converted to grayscale and better normalization technique were used.  However, the targeted accuracy was achieved, therefore I stopped optimizing my model for the project but I will continue to find better ways to improve the model in the future.
 
-
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 ## 4. Architecture Development
 
@@ -120,22 +114,25 @@ My model is based on the LeNet architecture.  When the LeNet architecture was fi
 I experimented on alternative normalization techniques and found that by simply using (x - 127.5) / 127.5 to normalize the data improved the training accuracy, therefore this is the approach I adopted.  Training data converge to high accuracy early and rapidly, however validation accuracy still lacks behind and didn't improve, therefore additional techniques need to be used.  This observation seemed to imply overfitting occurred.  In order to resolve this issue, regularization technique was used, namely dropouts.  I used two dropouts at Layer 4 and 5 with the probability of keeping the data set to 50%.  Different value of dropout probability was used but 50% provided the most optimal value in the iteration.  Validation accuracy was increased however the accuracy took longer to converge and reach the maximum accuracy that my model can provide. Since I have a CUDA enable laptop, so that tensorflow-gpu can be used to train the model quickly for iterative runs, therefore number of epochs need to train the model is not an issue for this architecture.
 
 My final model results were:
-* training set accuracy of 99.6%
-* test set accuracy of 94.5%
-* validation set accuracy of 94.5% (PASS)
+* training set accuracy of 99.3%
+* test set accuracy of 93.3%
+* validation set accuracy of 93.7% (PASS)
 
 ###Test a Model on New Images
 
 ## Testing of the New Model
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+## 1. Random German Traffic Signs
+
+Five German traffic signs were found on the web in order to feed into the model for further testing of the model:
 
 ![alt text][image7] ![alt text][image8] ![alt text][image9] 
 ![alt text][image10] ![alt text][image11]
 
+These images have different dimensions and resolutions when they were first downloaded.  I cropped the area on the image where the signs is located in each image.  Using an online tool, I reduced the image resolution to 32 x 32, which is demanded by the current model architecture.  Although the distortion of the images are minimized from the cropping, the resolution of the images were significantly reduced.  This will help to prove the robustness of the current model I developed.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+## 2. Prediction Results
 
 Here are the results of the prediction:
 
@@ -147,8 +144,9 @@ Here are the results of the prediction:
 | ![alt text][image10]      		| "No entry"					 				|
 | ![alt text][image11]			| "Children crossing"      							|
 
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%, it's perfect! When there are more test cases, it is expected that the result will be lowered since the validation accuracy is 94%.  Nonetheless the test results compare favorably to the accuracy on the validation accuracy.
 
-The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 80%. When there are more test cases, it is expected that the result will be more than 80% since the validation accuracy is 94%.  Nonetheless the test results compare favorably to the accuracy on the validation accuracy.
+## 3. Top 5 
 
 
 
