@@ -1,4 +1,4 @@
-# **Behavioral Cloning** 
+# **Project 3: Behavioral Cloning** 
 
 ---
 
@@ -75,9 +75,10 @@ For details about how I created the training data, please see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+The overall strategy for deriving a model architecture was to use an existing proven CNN architecture designed for image classification or regression and improve the model as needed from the initial results.  A number of factors were considered when designing the overall solution approach, such as memory constraints, GPU acceleration, quality and quantity of image dataset, accuracy of trained model and project requirements.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+I first used the LeNet CNN architecture with a moderate dataset in order to determine the areas for improvement.  The result from this initial model is poor, the vehicle went off the road in the first corner and was not able to recover.  While it was expected because there was no training data available for the vehicle to recover from mistakes in the initial dataset, which was developed by me using the Udacity vehicle simulator.  Futher collection of image dataset using the vehicle simulator yields some success but vehicle still drift off to the side and lose control.  Therefore, a more powerful CNN is needed in order to satisfy the project requirement.  Instead of fine tuning the LeNet model, I used the NVIDIA CNN model as a starting point for training an autonomous car steering control model.  
+
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
