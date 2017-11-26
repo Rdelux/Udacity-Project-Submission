@@ -57,13 +57,13 @@ Using adequate amount of data while focusing on vehicle recovery and data genera
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+The model uses early termination to reduce the overfitting issue.  Since the results were acceptable, no further action was taken to address overfitting, such as adding a dropout layer.
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 20 in the model.py version and line 67 in the model_readAll.py version). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 85;model_readAll.py line 66).
 
 #### 4. Appropriate training data
 
@@ -90,10 +90,6 @@ After collection more data, the vehicle is able to drive autonomously around the
 The final model architecture (model.py lines 69-80) consisted of a convolution neural network with the following layers and layer sizes [[Ref 1]](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
 
 ![alt text][image7]
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
 
 #### 3. Creation of the Training Set & Training Process
 
