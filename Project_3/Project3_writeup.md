@@ -17,10 +17,10 @@ The objectives of this project are as follow:
 [image1]: ./images/center_2017_11_25_18_25_27_636.jpg "Center Camera View"
 [image2]: ./images/left_2017_11_25_18_25_27_636.jpg "Left Camera View"
 [image3]: ./images/right_2017_11_25_18_25_27_636.jpg "Right Camera View"
-[image4]: ./images/placeholder_small.png "Recovery Image"
-[image5]: ./images/placeholder_small.png "Recovery Image"
-[image6]: ./images/placeholder_small.png "Normal Image"
-[image7]: ./images/placeholder_small.png "Flipped Image"
+[image4]: ./images/center_2017_11_25_18_49_34_669.jpg "Reverse Course Center Camera View"
+[image5]: ./images/left_2017_11_25_18_49_34_669.jpg "Reverse Course Left Camera View"
+[image6]: ./images/right_2017_11_25_18_49_34_669.jpg "Reverse Course Right Camera View"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
