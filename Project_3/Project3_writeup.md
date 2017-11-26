@@ -20,7 +20,7 @@ The objectives of this project are as follow:
 [image4]: ./images/center_2017_11_25_18_49_34_669.jpg "Reverse Course Center Camera View"
 [image5]: ./images/left_2017_11_25_18_49_34_669.jpg "Reverse Course Left Camera View"
 [image6]: ./images/right_2017_11_25_18_49_34_669.jpg "Reverse Course Right Camera View"
-
+[image7]: ./images/NVIDIA.png "NVIDIA Autonomous Car CNN Model"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -87,7 +87,9 @@ After collection more data, the vehicle is able to drive autonomously around the
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 69-80) consisted of a convolution neural network with the following layers and layer sizes [1](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
+
+![alt text][image7]
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
