@@ -41,6 +41,7 @@ My project includes the following files:
 * model_readAll.py containing the script to create and train the model by reading all images to the memory at once
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
+* video.mp4 containing the video of autonomous vehicle successfully completed a round in the simulated course
 * Project3_writeup.md summarizing the results
 
 #### 2. Submission includes functional code
