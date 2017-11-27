@@ -87,7 +87,28 @@ After collection more data, the vehicle is able to drive autonomously around the
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 69-80) consisted of a convolution neural network with the following layers and layer sizes [[Ref 1]](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
+The final model architecture (model.py lines 69-80) consisted of a convolution neural network with the following layers and layer sizes:
+
+| Layer         		|     Description	        					|    
+|:---------------------:|:-------------------------------------:|
+| Image Input         	| 160 x 320 x 3 RGB image   |
+| Image Cropping        | 65 x 320 x 3 RGB image    |
+| Layer 1: Convolution  | 31 x 158 x 24             |
+| RELU					        |	 Activation								|
+| Layer 2: Convolution  | 14 x 77 x 36              |
+| RELU					        |	 Activation								|
+| Layer 3: Convolution  | 5 x 37 x 48               |
+| RELU					        |	 Activation								|
+| Layer 4: Convolution  | 1 x 35 x 64               |
+| RELU					        |	 Activation								|
+| Layer 5: Convolution  | 1 x 33 x 64               |
+| Flatten               |                           |
+| Fully Connected 1     |     100                   |
+| Fully Connected 2     |     50                    |
+| Fully Connected 3     |     10                     |
+| Fully Connected 4     |     1                      |
+
+Here is a reference to the NVIDIA CNN model [[Ref 1]](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
 
 ![alt text][image7]
 
