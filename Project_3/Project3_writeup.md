@@ -21,6 +21,7 @@ The objectives of this project are as follow:
 [image5]: ./images/left_2017_11_25_18_49_34_669.jpg "Reverse Course Left Camera View"
 [image6]: ./images/right_2017_11_25_18_49_34_669.jpg "Reverse Course Right Camera View"
 [image7]: ./images/NVIDIA.png "NVIDIA Autonomous Car CNN Model"
+[image8]: ./images/center_2017_11_25_18_28_15_882.jpg "Recovery"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -102,27 +103,35 @@ The final model architecture (model.py lines 69-80) consisted of a convolution n
 | Layer 4: Convolution  | 1 x 35 x 64               |
 | RELU					        |	 Activation								|
 | Layer 5: Convolution  | 1 x 33 x 64               |
-| Flatten               |                           |
+| Flatten               |     2112                      |
 | Fully Connected 1     |     100                   |
 | Fully Connected 2     |     50                    |
 | Fully Connected 3     |     10                     |
 | Fully Connected 4     |     1                      |
 
-Here is a reference to the NVIDIA CNN model [[Ref 1]](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
+Here is a reference to the NVIDIA CNN architecture [[Ref 1]](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
 
 ![alt text][image7]
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To capture good driving behavior, I first recorded two laps on track one focusing on driving in the middle of the lane. Here is an example image of center lane driving:
+
+![alt text][image1]
+
+In addition, I would like the model to be able to steer the vehicle back to the center when it is drifted off to the left or right side, and instead of data augmentation, I used the images from the left and right camera as well:
 
 ![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
 ![alt text][image3]
+
+I order to generalize the dataset, I then drove the vehicle in a reversed course.  This could have been done by using mirror image of the collected data but I would like to collect more diverse data, therefore I chose to collect more data in the simulator.  The images of the center, left and right camera view in a reverse course can be seen here:
+
 ![alt text][image4]
 ![alt text][image5]
+![alt text][image6]
+
+In addition, I recorded the vehicle recovering from the left side and right sides of the road back to center numerous times in order to improve the recovery characteristics.  I steer the vehicle so that it approaches the side of the road, and then I started recording the images while steering the vehicle back to the center.  Here is an image where I drifted off to the left and then I recovered back to the center lane:
+
 
 Then I repeated this process on track two in order to get more data points.
 
