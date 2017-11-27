@@ -21,7 +21,12 @@ The objectives of this project are as follow:
 [image5]: ./images/left_2017_11_25_18_49_34_669.jpg "Reverse Course Left Camera View"
 [image6]: ./images/right_2017_11_25_18_49_34_669.jpg "Reverse Course Right Camera View"
 [image7]: ./images/NVIDIA.png "NVIDIA Autonomous Car CNN Model"
-[image8]: ./images/center_2017_11_25_18_28_15_882.jpg "Recovery"
+[image8]: ./images/center_2017_11_25_18_51_09_020.jpg "Recovery1"
+[image9]: ./images/center_2017_11_25_18_51_09_165.jpg "Recovery2"
+[image10]: ./images/center_2017_11_25_18_51_09_324.jpg "Recovery3"
+[image11]: ./images/center_2017_11_25_18_51_09_460.jpg "Recovery4"
+[image12]: ./images/center_2017_11_25_18_51_09_618.jpg "Recovery5"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -103,11 +108,11 @@ The final model architecture (model.py lines 69-80) consisted of a convolution n
 | Layer 4: Convolution  | 1 x 35 x 64               |
 | RELU					        |	 Activation								|
 | Layer 5: Convolution  | 1 x 33 x 64               |
-| Flatten               |     2112                      |
+| Flatten               |     2112 x 1              |
 | Fully Connected 1     |     100                   |
 | Fully Connected 2     |     50                    |
-| Fully Connected 3     |     10                     |
-| Fully Connected 4     |     1                      |
+| Fully Connected 3     |     10                    |
+| Fully Connected 4     |     1                     |
 
 Here is a reference to the NVIDIA CNN architecture [[Ref 1]](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf):
 
@@ -130,21 +135,18 @@ I order to generalize the dataset, I then drove the vehicle in a reversed course
 ![alt text][image5]
 ![alt text][image6]
 
-In addition, I recorded the vehicle recovering from the left side and right sides of the road back to center numerous times in order to improve the recovery characteristics.  I steer the vehicle so that it approaches the side of the road, and then I started recording the images while steering the vehicle back to the center.  Here is an image where I drifted off to the left and then I recovered back to the center lane:
+In addition, I recorded the vehicle recovering from the left side and right sides of the road back to center numerous times in order to improve the recovery characteristics.  I steer the vehicle so that it approaches the side of the road, and then I started recording the images while steering the vehicle back to the center.  Here is a series of images where I drifted off to the left and then I recovered back to the center lane:
 
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
+![alt text][image11]
+![alt text][image12]
 
-Then I repeated this process on track two in order to get more data points.
+Futhermore, I would like to improve the cornering characteristics of the vehicle, so I focused on gathering more data in just the curved part of the track.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+I experimented on flipped, angled, mirrored images, however I found the biggest improvement of autonomous driving behavior came from providing the right data that are generalized enough to train the model.
 
-![alt text][image6]
-![alt text][image7]
+After the collection process, I had 19099 number of data points from three camera images.  Validation is being done on 4775 samples, which represent 20% of the entire dataset.  I used 3 epoches to train the model since any more epoch will cause the validation loss to increase.
 
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used two approach to run the training and validation set to train the model: one approach is to import and process all the image and steering data, while the other approach is to use python generator to read the training and validation data as needed in batches.  Using my own hardware, I found that the first approach is much faster.  The training time for reading in all the data at once is 298s , while it took 11,658s by using a generator approach.
