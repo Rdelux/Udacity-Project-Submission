@@ -32,9 +32,8 @@ The objectives of this project are as follow:
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-### Files Submitted & Code Quality
 
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission files and codes
 
 My project includes the following files:
 * model.py containing the script to create and train the model by reading batched image data using a python generator
@@ -44,13 +43,13 @@ My project includes the following files:
 * video.mp4 containing the video of autonomous vehicle successfully completed a round in the simulated course
 * Project3_writeup.md summarizing the results
 
-#### 2. Submission includes functional code
+#### 2. Functional code
 Using the Udacity provided simulator, the drive.py file, and the model.h5 train network, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-#### 3. Submission code is usable and readable
+#### 3. Code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 The model_readAll.py file contains similar code, however it read and store the preprocessed image data all at once withou using a generator.  It was found that my Alienware Laptop with a GTX 970M video card can train the model much faster than batching the image data using GPU acceleration.  My computer is able to store all the image data in the memory at once, thus minimizing communication resources on the bus, therefore the performance of the code in model_readAll.py is much faster than model.py using the dataset I collected.
