@@ -86,12 +86,15 @@ Using the distortion correction obtained from the previous step, I applied them 
 
 #### 2. Image Processing for Lane Finding - use color transforms and image gradients to create thresholded binary image  
 
-In order to identify the lane lines on the road, a binary image of the road should be created, which will clearly identify the lane as "1" or True or other pixels as "0" or false.  Since the lanes can be continuous, discrete, displayed in different color and lighting condition, a robust image processing scheme need to be developed in order to identify the lanes at all times.  
+In order to identify the lane lines on the road, a binary image of the road should be created, which will clearly identify the lane as "1" or True or other pixels as "0" or false.  Since the lanes can be continuous, discrete, displayed in different color and lighting condition, a robust image processing scheme need to be developed in order to identify the lanes at all times.  The image processing of the code is located in a function called "ProcessImg", which is located in code line# 108.  The grayscale conversion and thresholding is handled by code line# 109 to 112.  
 
 At first, I converted the image to grayscale and generate a binary image with the goal of identifying the lane lines clearly.  To generate a binary image, I applied a lower and upper bound to the grayscale image, thus creating a threshold criteria.  Although this method works in ideal lighting and lane coloring conditions, they method is not versatile and fail to identify lanes some test images.  An example of grayscale conversion and thresholding can be seen below:
 
 ![alt text][image31]
 
+In order to remove other artifacts, which are not part of the lane lines, a directional gradient filter was used.  The Sobel operator was used to extract the lane line from the road background image.  Since lane line is directionally biased, therefore this scheme should be able to distinguish the lane lines from the noisy background.  I experimented with the x and y direction of the Sobel operator, and it was found that the x direction works slightly better in picking out the lane lines. The implenmentation of this operation can be seen in code line# 114 to 119 inside the ProcessImg function.  Applying thresholds and creating a binary image of the input, the sample processed image looks like this:
+
+![alt text][image32]
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
