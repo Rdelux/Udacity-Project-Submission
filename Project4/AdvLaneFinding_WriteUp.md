@@ -201,7 +201,7 @@ Assuming that the camera is mounted on the centerline of the vehicle, the depart
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-After the curvatures and the departure distance were calculated, the next step is the plot the highlight lane back to the road and indicate the two values calculated.  This is done in the function "outputVideoImage", which takes both the warped and unwarped images, the polynormial information, curvature and departure values, as well as the inverse warp transform matrix.  The function bounded the area between the left and right lanes to create a polygon and then fill the polygon with green color in the top-down perspective view image.  Then the function use the cv2.warpPerspective method to transform the top-down view back to the warped view using the inverse transformation matrix. At the end, the warped image was added back to the original image along with the curvature and departure text to complete one cycle of the pipeline (lines 311 to 314).  This is shown in the following image:
+After the curvatures and the departure distance were calculated, the next step is the plot the highlight lane back to the road and indicate the two values calculated.  This is done in the function "outputVideoImage", which takes both the warped and unwarped images, the polynormial information, curvature and departure values, as well as the inverse warp transform matrix.  The function bounded the area between the left and right lanes to create a polygon and then fill the polygon with green color in the top-down perspective view image.  Then the function use the cv2.warpPerspective method to transform the top-down view back to the warped view using the inverse transformation matrix. At the end, the warped image was added back to the original image along with the curvature and departure text to complete one cycle of the pipeline (lines 311 to 314).  If the curvature value is larger then 1.5 km, it is highly likely that the vehicle is travelling on a straight road, therefore the code will show the user "Straight Road" instead of providing a very large number.  This is shown in the following image:
 
 ![alt text][image5]
 
@@ -213,10 +213,11 @@ After the curvatures and the departure distance were calculated, the next step i
 
 Here's a [link to my video result](./LaneDetectedVideo.mp4)
 
+The code will call the main video processing function called "video_process".  Inside this function, it will called various image processing functions (lines 326 and 327), call the functions to calculate curvature (line 337) and compute the departure distance.  It will pass all these information to the outputVideoImage function for combining.  The result final image is passed back to the main function before writing it to file to create a video.
+
 ---
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+I had discussed the approach I took and the techniques I used through out this report.  There are number of areas that the pipeline can be improved since the pipeline may breakdown in a number of scenarios.  For example, if there are painted markings on the road, the histogram count make pick up the markings instead of the lane lines.  As a result, the sliding window search will fail.  Using history variables, performance tracking and uncertainty evaluation, this problem can be resolved.  The current method can also be improve by not calling the window search algorithm every frame.  This will improve the speed of the program.
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
