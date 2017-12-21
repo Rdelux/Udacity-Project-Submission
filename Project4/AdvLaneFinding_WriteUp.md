@@ -72,7 +72,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function, which can be seen in line 61 of the code.  This step only need to be computed once since these parameters are the intrinsic properties of the camera.  As an demonstration,  I applied this distortion correction to the test image 'calibration2.jpg' using the `cv2.undistort()` function in the second code cell. Here are the images of the obtained result: 
 
-![alt text][image1]
+![alt text][image27]
 
 ### Pipeline (single images)
 
