@@ -76,10 +76,13 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ### Pipeline (single images)
 
-#### 1. Provide an example of a distortion-corrected image.
+The next step is to develop a pipeline to processed a number of test images in order to ensure the code is functional and robust enough for the project video.  The original development code can be seen in the Jupyter Notebook 'AdvLaneFinding_2.ipynb'.  Once the pipeline was proven to be adequate, many of the test codes were removed for clarity in the final version of the code, 'AdvLaneFinding_Submit.ipynb'.  In this section, I will describe how this pipeline works for individual test images.
 
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+#### 1. Distortion Correction on Camera Images
+
+Using the distortion correction obtained from the previous step, I applied them on a test image to demostrate the effect of undistorting a road image:
+
+![alt text][image29]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
