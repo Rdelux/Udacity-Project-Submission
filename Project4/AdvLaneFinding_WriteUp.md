@@ -96,7 +96,9 @@ In order to remove other artifacts, which are not part of the lane lines, a dire
 
 ![alt text][image32]
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+The Sobel X operator is a more robust approach to process an image for finding the lane lines.  In the example above, the grayscale binary image shows a pretty good result but if the lighting condition changed, the grayscale method may not work by itself.  Using a gradient operator, like Sobel, will allow a more versatile approach.
+
+The challenges of identifying lanes in different lighting condition and color cannot be addressed fully by using just grayscale images.  Various color spaces that are less dependent on lighting and color can be used to improve the pipeline.  At first, the RGB color space was examined and the image was separated into 3 images according to their color components:
 
 ![alt text][image3]
 
