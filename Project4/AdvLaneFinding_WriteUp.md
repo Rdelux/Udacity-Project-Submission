@@ -1,4 +1,4 @@
-***Project 4: Advanced Lane Finding Project***
+*Project 4: Advanced Lane Finding Project*
 
 The goals / steps of this project are the following:
 
@@ -53,19 +53,14 @@ The goals / steps of this project are the following:
 [image37]: ./Images/VariousFilteringExample.png "Combined Filtering Example"
 [image38]: ./Images/PerspectiveCalibrationExample.png "Perspective Correction Example"
 
-[video1]: ./project_video.mp4 "Video"
+[video1]: ./Project_Videos/project_video.mp4 "Project Video"
+[video2]: ./LaneDetectedVideo.mp4 "Lane Detected Video"
 
-## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
+## [Rubric Points](https://review.udacity.com/#!/rubrics/571/view) 
 
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-
-### Writeup / README
-
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it!
 
 ### Camera Calibration
 
