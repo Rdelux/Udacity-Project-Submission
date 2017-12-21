@@ -108,6 +108,19 @@ However, using the S Channel from the HLS color space along still failed in othe
 
 ![alt text][image34]
 
+In theory, the Value Channel should provide a good indicator of the single color lane line even in low light shadow spots.  However, in practice the result is still not ideal since bright color sunlight will drown out the lane lines.  The Saturation Channel performs well in shadow and low light condition. The threshold binary image of S-Channel filtering can be seen here:
+
+![alt text][image35]
+
+And the V-Channel filtering can be seen here:
+
+![alt text][image36]
+
+Combining both the binaries of the S and V channels using a union or 'And' operator should reinforce the correct lane line detection.  Further improvement of the lane line image can be achieve by removing some of the noise from the image.  This can be done by combining the Sobel x grayscale binary image and the combined S-V color channel thresholded image.  The result can be seen in the image below:
+
+![alt text][image37]
+
+
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
 The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
