@@ -42,7 +42,7 @@ The goals / steps of this project are the following:
 [image26]: ./Images/Straight_Lines2_Result.png "Straight Lane Perspective Image"
 [image27]: ./Images/Original_Camera_Calibration.png "Camera Calibration"
 [image28]: ./Images/ChessBoardCorners.png "Chess Board Corners"
-[image29]: ./Images/Test_image_Distrortion.png "Test Image Distortion"
+[image29]: ./Images/Test_Image_Distrortion.png "Test Image Distortion"
 [image30]: ./Images/ImageProcessingExample.png "Image Processing Example"
 [image31]: ./Images/GrayScaleExample.png "Gray Scale Image Example"
 [image32]: ./Images/SobelxExample.png "Sobel X Image Filtering Example"
