@@ -104,6 +104,10 @@ I explored the HLS and HSV color space in order to find a color components that 
 
 ![alt text][image33]
 
+However, using the S Channel from the HLS color space along still failed in other challenging light conditions.  Therefore, I explore using the V Channel or the Value of the HSV color space.  The image in HSV color space can be seen below:
+
+![alt text][image34]
+
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
 The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
