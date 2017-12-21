@@ -1,4 +1,4 @@
-*Project 4: Advanced Lane Finding Project*
+# **Project 4: Advanced Lane Finding Project**
 
 The goals / steps of this project are the following:
 
