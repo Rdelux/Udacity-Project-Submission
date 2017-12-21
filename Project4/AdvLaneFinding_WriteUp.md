@@ -186,7 +186,9 @@ After the perspective view was found, the next step is to identify the lane line
 Test 5 Image: Perspective View and Histogram
 ![alt text][image40]
 
-The two most prominent peaks in the histogram approximate the two lane line locations, this is in line 205 and 206 of the code. I segmented the search box to 10 segments along the height of the image for better resolution for curved and discreet lane lines.  The search window positions were updated every frame in order to determine where the lanes are.  This information is stored in the variables leftx_current and rightx_current.  The boundaries of the search windows are defined in lines 227 through 232, and the "occupied" pixel are identified in lines 239 to 242.  The mean position of the occupied pixels will be update for the next window search.  By fitting a second order polynomial to the mean positions of the windows, the lane line positions can be estimated.  The coefficients of the polynomial and the pixel positions of the lanes were returned from the function.   
+The two most prominent peaks in the histogram approximate the two lane line locations, this is in line 205 and 206 of the code. I segmented the search box to 10 segments along the height of the image for better resolution for curved and discreet lane lines.  The search window positions were updated every frame in order to determine where the lanes are.  This information is stored in the variables leftx_current and rightx_current.  The boundaries of the search windows are defined in lines 227 through 232, and the "occupied" pixel are identified in lines 239 to 242.  The mean position of the occupied pixels will be update for the next window search.  By fitting a second order polynomial to the mean positions of the windows, the lane line positions can be estimated.  The coefficients of the polynomial and the pixel positions of the lanes were returned from the function. The result is shown in the image below:
+
+![alt text][image17]
 
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
