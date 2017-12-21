@@ -122,7 +122,20 @@ Combining both the binaries of the S and V channels using a union or 'And' opera
 
 This image processing scheme was tested all the provided testing images and the results are good - lane lines are clearly identified in various lighting conditions:
 
-![alt text][image7] ![alt text][image8] ![alt text][image9] ![alt text][image10] ![alt text][image11] ![alt text][image12]
+Test 2 (Please disregard image titles - "Top-Down Perspective" should have been named "Processed Image")
+![alt text][image7]
+
+Test 3 (Please disregard image titles - "Top-Down Perspective" should have been named "Processed Image")
+![alt text][image8] 
+
+Test 4 (Please disregard image titles - "Top-Down Perspective" should have been named "Processed Image")
+![alt text][image9] 
+
+Test 5 (Please disregard image titles - "Top-Down Perspective" should have been named "Processed Image")
+![alt text][image10] 
+
+Test 6 (Please disregard image titles - "Top-Down Perspective" should have been named "Processed Image")
+![alt text][image11] 
 
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
