@@ -84,8 +84,13 @@ Using the distortion correction obtained from the previous step, I applied them 
 
 ![alt text][image29]
 
-#### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
+#### 2. Image Processing for Lane Finding - use color transforms and image gradients to create thresholded binary image  
 
+In order to identify the lane lines on the road, a binary image of the road should be created, which will clearly identify the lane as "1" or True or other pixels as "0" or false.  Since the lanes can be continuous, discrete, displayed in different color and lighting condition, as well as partially distrubed, a robust image processing scheme need to be developed in order to identify the lanes at all times.  An example of grayscale conversion can be seen below:
+
+![alt text][image31]
+
+At first, I converted the image to grayscale and generate a binary image with the goal of identifying the lane lines clearly.  Although this method works in ideal lighting and lane coloring conditions, they method is not versatile and fail to identify lanes some test images.
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
 ![alt text][image3]
