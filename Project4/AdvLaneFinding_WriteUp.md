@@ -192,23 +192,26 @@ The two most prominent peaks in the histogram approximate the two lane line loca
 ![alt text][image17]
 
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### 5. Calculate the radius of curvature of the lane and the position of the vehicle with respect to center
 
-I did this in lines # through # in my code in `my_other_file.py`
+In order to determine the curvature of the lane, I developed a function called "get_Curvature", it is located in line 272 to 290.  The function also transform the measurement of the curvature in pixel space to physical space using the scaling factors provided, which are 30/720 meter per pixel in the y direction and 3.7/700 meter per pixel in the x direction. A pair of new polynormials were created (lines 283 to 284) based on physical space and the curvature of the lanes were determined (lines 287 to 288).
+
+Assuming that the camera is mounted on the centerline of the vehicle, the departure distance of the vehicle and the center of the lane can be estimated.  By assumption, the middle of the image indicate the center of the vehicle, which is half the pixel count of the image width.  This equals to 640, this value is indicated in line 349.  Taking the base positions of the lane lines and calculate the median, the center of the lane can be estimated.  The difference between the the center of the lane and pixel 640 is the departure distance in pixel space.  Converting it to physical space, the physical departure distance can be estimated, this is shown in line 350.
+
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+After the curvatures and the departure distance were calculated, the next step is the plot the highlight lane back to the road and indicate the two values calculated.  This is done in the function "outputVideoImage", which takes both the warped and unwarped images, the polynormial information, curvature and departure values, as well as the inverse warp transform matrix.  The function bounded the area between the left and right lanes to create a polygon and then fill the polygon with green color in the top-down perspective view image.  Then the function use the cv2.warpPerspective method to transform the top-down view back to the warped view using the inverse transformation matrix. At the end, the warped image was added back to the original image along with the curvature and departure text to complete one cycle of the pipeline (lines 311 to 314).  This is shown in the following image:
 
-![alt text][image6]
+![alt text][image5]
 
 ---
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Final video output
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./LaneDetectedVideo.mp4)
 
 ---
 
