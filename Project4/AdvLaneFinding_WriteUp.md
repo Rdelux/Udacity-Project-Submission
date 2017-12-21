@@ -98,9 +98,11 @@ In order to remove other artifacts, which are not part of the lane lines, a dire
 
 The Sobel X operator is a more robust approach to process an image for finding the lane lines.  In the example above, the grayscale binary image shows a pretty good result but if the lighting condition changed, the grayscale method may not work by itself.  Using a gradient operator, like Sobel, will allow a more versatile approach.
 
-The challenges of identifying lanes in different lighting condition and color cannot be addressed fully by using just grayscale images.  Various color spaces that are less dependent on lighting and color can be used to improve the pipeline.  At first, the RGB color space was examined and the image was separated into 3 images according to their color components:
+The challenges of identifying lanes in different lighting condition and color cannot be addressed fully by using just grayscale images.  Various color spaces that are less dependent on lighting and color can be used to improve the pipeline.  At first, the RGB color space was examined and the image was separated into 3 images according to their color components.  Although the Red channel shows the lane lines clearly in the image but if different color lane lines were used, the result will not be ideal.  For this reason, other color spaces should be used for additional image processing.
 
-![alt text][image3]
+I explored the HLS and HSV color space in order to find a color components that are decoupled from color (Hue) and lighting conditions.  Examining the S Channel or the Saturation of the test image in the HLS color space, it was found that the S channel was the most distintive one.  The image in HLS color space can be seen below:
+
+![alt text][image33]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
