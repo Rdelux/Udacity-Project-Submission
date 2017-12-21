@@ -56,9 +56,7 @@ The goals / steps of this project are the following:
 [video1]: ./Project_Videos/project_video.mp4 "Project Video"
 [video2]: ./LaneDetectedVideo.mp4 "Lane Detected Video"
 
-## [Rubric Points](https://review.udacity.com/#!/rubrics/571/view) 
-
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+### The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/571/view)   
 
 ---
 
