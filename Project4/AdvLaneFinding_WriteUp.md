@@ -64,11 +64,13 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 #### 1. Camera matrix and distortion coefficients Computation
 
-The first step for this project is to correct the camera distortions present in the video.  In order to do this, I used the various Chess Board calibration images provided.  The code for this step is contained in the first code cell of the IPython notebook "AdvLaneFinding_Submit.ipynb" (or in lines # through # of the file called `some_file.py`).  
+The first step for this project is to correct the camera distortions present in the project video.  In order to do this, I used the various chessboard calibration images provided, which can be found in the "camera_cal" folder.  The code for this step is contained in the first code cell of the IPython notebook "AdvLaneFinding_Submit.ipynb" (or in lines 42 through 61 of the file called `AdvLaneFinding_Submit.py`).  
 
-I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
+I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the physical space. Here I am assuming the chessboard has no out-of-plane component, therefore z=0 for all its coordinates and the object points are the same for each of the 20 calibration images.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  The following image shows an example of the detected chessboard corners:
 
-I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
+![alt text][image28]
+
+I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function, which can be seen in line 61 of the code.  This step only need to be computed once since these parameters are the intrinsic properties of the camera.  As an demonstration,  I applied this distortion correction to the test image 'calibration2.jpg' using the `cv2.undistort()` function in the second code cell. Here are the images of the obtained result: 
 
 ![alt text][image1]
 
