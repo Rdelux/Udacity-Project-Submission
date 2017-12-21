@@ -1,4 +1,4 @@
-## Read Me File - Directory for Project 4: Advance Lane Finding File Structure
+## Project 4: Advance Lane Finding - Directory for File Structure
 
 * "AdvLaneFinding_Submit.ipynb" is the Jupyter Notebook for the lane finding and visualization code
 * "AdvLaneFinding_Submit.py" is the Python verison of the same code, used to indicate line number for codes
