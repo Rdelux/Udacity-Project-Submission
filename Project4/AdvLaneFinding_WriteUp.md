@@ -196,7 +196,16 @@ The two most prominent peaks in the histogram approximate the two lane line loca
 
 In order to determine the curvature of the lane, I developed a function called "get_Curvature", it is located in line 272 to 290.  The function also transform the measurement of the curvature in pixel space to physical space using the scaling factors provided, which are 30/720 meter per pixel in the y direction and 3.7/700 meter per pixel in the x direction. A pair of new polynormials were created (lines 283 to 284) based on physical space and the curvature of the lanes were determined (lines 287 to 288).
 
-Assuming that the camera is mounted on the centerline of the vehicle, the departure distance of the vehicle and the center of the lane can be estimated.  By assumption, the middle of the image indicate the center of the vehicle, which is half the pixel count of the image width.  This equals to 640, this value is indicated in line 349.  Taking the base positions of the lane lines and calculate the median, the center of the lane can be estimated.  The difference between the the center of the lane and pixel 640 is the departure distance in pixel space.  Converting it to physical space, the physical departure distance can be estimated, this is shown in line 350.
+Assuming that the camera is mounted on the centerline of the vehicle, the departure distance of the vehicle and the center of the lane can be estimated.  By assumption, the middle of the image indicate the center of the vehicle, which is half the pixel count of the image width.  This equals to 640, this value is indicated in line 349.  Taking the base positions of the lane lines and calculate the median, the center of the lane can be estimated.  The pixel location of the left and right lanes can be taken by the 720th elements of the respective polynormials, which is indicated in the following code:
+
+```python
+# Departure from lane center information
+    xm_per_pix = 3.7/700     
+    laneDep = 640.0 - ((leftPolyx[719]+rightPolyx[719])/2)                   # Use y-intercept to determine lane positions in a 1280 pixel image
+    laneDep = laneDep * xm_per_pix
+```  
+
+The difference between the the center of the lane and pixel 640 is the departure distance in pixel space.  Converting it to physical space, the physical departure distance can be estimated, this is shown in line 350.
 
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
