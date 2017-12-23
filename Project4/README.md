@@ -1,6 +1,7 @@
 ## Project 4: Advance Lane Finding - Directory for File Structure
 
 * "AdvLaneFinding_Submit.ipynb" is the Jupyter Notebook for the lane finding and visualization code
+* "AdvLaneFinding_Submit_RevA.ipynb" is a revision of the original code to include correction for distortion and center-lane departure estimation
 * "AdvLaneFinding_2.ipynb" is a reference Jupyter Notebook I created for development purposes
 * "AdvLaneFinding_Submit.py" is the Python verison of the same code, used to indicate line number for codes
 * "AdvLaneFinding_WriteUp.md" is the writeup of the project
