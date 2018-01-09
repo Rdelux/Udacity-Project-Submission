@@ -15,28 +15,29 @@ The goals / steps of this project are the following:
 [image4]: ./Images/Test4Output.png
 [image5]: ./Images/Test5Output.png
 [image6]: ./Images/Test6Output.png
-[image7]: ./examples/output_bboxes.png
+[image7]: ./Images/Cars.png
+[image8]: ./Images/Notcars.png
+[image9]: ./Images/HOG.png
 [video1]: ./VehDetectTrack_Video.mp4
 
-The Rubric Points are listed in this following (https://review.udacity.com/#!/rubrics/513/view) Points
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+The Rubric Points are listed in this following link: https://review.udacity.com/#!/rubrics/513/view
 
 ---
-### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it!
 
 ### Histogram of Oriented Gradients (HOG)
 
-#### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+In order to create a feature set for training a classifier, the feature set needs to be robust and effective.  Even with a rich data set, generalization and over-fitting could be an issue, therefore Histogram of Oriented Gradients (HOG) technique was used in the project to identify vehicle objects.  The function implementation for this step is contained in the second code cell of the submitted IPython notebook (or in lines 150 through 164 of the file called `VehDetectTrack_Submit.py`).  
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+I started by reading in all the `vehicle` and `non-vehicle` images, this is done in third code cell of the submitted IPython notebook.  Here are some examples of the `vehicle` and `non-vehicle` classes:
 
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+![Vehicle Class][image7]
 
-![alt text][image1]
+![Non-vehicle Class][image8]
+
+Visualization of these images and the associated "Cars" HOG features are located in code cell number 4, 5 and 6.  Here are the HOG features:
+
+![Vehicle HOG Features][image9]
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
