@@ -35,24 +35,34 @@ I started by reading in all the `vehicle` and `non-vehicle` images, this is done
 
 ![Non-vehicle Class][image8]
 
-Visualization of these images and the associated "Cars" HOG features are located in code cell number 4, 5 and 6.  Here are the HOG features:
+Visualization of these images and the HOG features are located in code cell number 4, 5 and 6.  Here are the HOG features associated with "Cars" images displayed above:
 
 ![Vehicle HOG Features][image9]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+In addition to HOG features, I also explored the use of different color spaces for various feature extractions, including HSV, HLS, YCrCb, YUV and LUV.  The selected color space was also used for bin spatial and histogram of feature data extraction from the cars and non-cars images, the codes were implemented in line 103 to 105, and 107 to 109 respectively.  I used the cv2 input method from openCV to load the images hence the .png images have values from 0 to 255, and the values are actually in BGR format.  However, as long as the classifier and the detection feature vectors are consistent, the returned results are correct.  The only concern is when displaying the images, therefore a conversion step was added for image display.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+I experimented with different color spaces by comparing the classifier accuracy and testing the classifier against the 6 test images.  The best solution was obtained by using the LUV color space, which correctly identified all the test images. The second best color space is HSV, which only correctly identify 5 out of the 6 images.
 
 
-![alt text][image2]
+### Final choice of HOG parameters
 
-#### 2. Explain how you settled on your final choice of HOG parameters.
+Other parameters for HOG feature extraction includes number of orientation bins, number of pixel per cell, translation pixel number per block, number of HOG channel and spatial size. While holding other values constant and varying one parameter at a time, I varied the number of orientation bins from 8 to 12.  However, I did not find significant improvement in performance for the classifier beyond 8 orientation bins.  I did not vary the number of pixel per cell since varying other parameters provided adequate level of optimization to tune the classifier.  In order to achieve generalization and maximize the speed of the classifier, I used a 16 x 16 pixel spatial size instead of a 32 x 32.  The result was adequate and the classifier was able to identify all the images, therefore the final choice of the HOG parameters are:
 
-I tried various combinations of parameters and...
+|  HOG Parameters  |   Value    |
+|:----------------:|:----------:|
+|color_space       | LUV        |
+| orient           | 8 |
+| pix_per_cell | 8 |                                                   
+| cell_per_block | 2 |                                               
+| hog_channel | 0 |                                                 
+| spatial_size | (16, 16) |
 
-#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+These values are declared in code cell number 7 between lines 276 to 281.
+
+### Training a classifier using your selected HOG features and color features
 
 I trained a linear SVM using...
+
 
 ### Sliding Window Search
 
