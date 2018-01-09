@@ -48,7 +48,7 @@ I experimented with different color spaces by comparing the classifier accuracy 
 
 Other parameters for HOG feature extraction includes number of orientation bins, number of pixel per cell, translation pixel number per block, number of HOG channel and spatial size. While holding other values constant and varying one parameter at a time, I varied the number of orientation bins from 8 to 12.  However, I did not find significant improvement in performance for the classifier beyond 8 orientation bins.  I did not vary the number of pixel per cell since varying other parameters provided adequate level of optimization to tune the classifier.  In order to achieve generalization and maximize the speed of the classifier, I used a 16 x 16 pixel spatial size instead of a 32 x 32.  The result was adequate and the classifier was able to identify all the images, therefore the final choice of the HOG parameters are:
 
-|  HOG Parameters  |   Value    |
+|  HOG Parameters  |   Values    |
 |:----------------:|:----------:|
 |color_space       | LUV        |
 | orient           | 8 |
@@ -61,7 +61,9 @@ These values are declared in code cell number 7 between lines 276 to 281.
 
 ### Training a classifier using your selected HOG features and color features
 
-I trained a linear SVM using...
+Prior to training a classifier, I check the number of images used for "Car" vs "non-Car" images to ensure that the data sets are balance.  The "non-Car" data set only has 2% more data than the "Car" data set, therefore it is assumed that the data set are sufficiently balanced.
+
+For robustness, simplicity and performance, I used a linear Support Vector Machine (SVM) approach to build a classifier.  The first step for training the classifier is to prepare the data in the correct format.  "Cars" and "non-Cars" data were formatted to a 1-D vector in code line 301.  The feature vector created was then normalized by scaling their values (code line 303).   Since the data sets were loaded as "cars" and "non-cars", there are only 2 classes.  Car images are label with "1" and non-car images are labelled with "0" (code line number 312).  In order to test the accuracy of the trained linear SVM classifier, I split the data set into a training data set and a testing data set.  The testing data set represent only 20% of the entire data set. A linear SVM classifier was defined and used to train the data set in code line number 321 and 323.  The effectiveness and accuracy of the classifier was testing in code line number 325.  The final accuracy was found to be approximately 98.7% using the parameters listed above.  The accuracy changes slightly everytime when I retrain the classifier, which indicate the random sampling nature of the training and testing data set.  The difference in accuracy value is neglible and hence classifier is determined to be stable.
 
 
 ### Sliding Window Search
