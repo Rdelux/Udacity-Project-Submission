@@ -25,6 +25,7 @@ The Rubric Points are listed in this following link: https://review.udacity.com/
 ---
 
 
+
 ### Histogram of Oriented Gradients (HOG)
 
 In order to create a feature set for training a classifier, the feature set needs to be robust and effective.  Even with a rich data set, generalization and over-fitting could be an issue, therefore Histogram of Oriented Gradients (HOG) technique was used in the project to identify vehicle objects.  The function implementation for this step is contained in the second code cell of the submitted IPython notebook (or in lines 150 through 164 of the file called `VehDetectTrack_Submit.py`).  
@@ -44,6 +45,7 @@ In addition to HOG features, I also explored the use of different color spaces f
 I experimented with different color spaces by comparing the classifier accuracy and testing the classifier against the 6 test images.  The best solution was obtained by using the LUV color space, which correctly identified all the test images. The second best color space is HSV, which only correctly identify 5 out of the 6 images.
 
 
+
 ### Final choice of HOG parameters
 
 Other parameters for HOG feature extraction includes number of orientation bins, number of pixel per cell, translation pixel number per block, number of HOG channel and spatial size. While holding other values constant and varying one parameter at a time, I varied the number of orientation bins from 8 to 12.  However, I did not find significant improvement in performance for the classifier beyond 8 orientation bins.  I did not vary the number of pixel per cell since varying other parameters provided adequate level of optimization to tune the classifier.  In order to achieve generalization and maximize the speed of the classifier, I used a 16 x 16 pixel spatial size instead of a 32 x 32.  The result was adequate and the classifier was able to identify all the images, therefore the final choice of the HOG parameters are:
@@ -59,11 +61,14 @@ Other parameters for HOG feature extraction includes number of orientation bins,
 
 These values are declared in code cell number 7 between lines 276 to 281.
 
+
+
 ### Training a classifier using your selected HOG features and color features
 
 Prior to training a classifier, I check the number of images used for "Car" vs "non-Car" images to ensure that the data sets are balance.  The "non-Car" data set only has 2% more data than the "Car" data set, therefore it is assumed that the data set are sufficiently balanced.
 
 For robustness, simplicity and performance, I used a linear Support Vector Machine (SVM) approach to build a classifier.  The first step for training the classifier is to prepare the data in the correct format.  "Cars" and "non-Cars" data were formatted to a 1-D vector in code line 301.  The feature vector created was then normalized by scaling their values (code line 303).   Since the data sets were loaded as "cars" and "non-cars", there are only 2 classes.  Car images are label with "1" and non-car images are labelled with "0" (code line number 312).  In order to test the accuracy of the trained linear SVM classifier, I split the data set into a training data set and a testing data set.  The testing data set represent only 20% of the entire data set. A linear SVM classifier was defined and used to train the data set in code line number 321 and 323.  The effectiveness and accuracy of the classifier was testing in code line number 325.  The final accuracy was found to be approximately 98.7% using the parameters listed above.  The accuracy changes slightly everytime when I retrain the classifier, which indicate the random sampling nature of the training and testing data set.  The difference in accuracy value is neglible and hence classifier is determined to be stable.
+
 
 
 ### Sliding Window Search
@@ -78,7 +83,13 @@ I decided to search random window positions at random scales all over the image 
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![Test 1 Image][image1]
+![Test 2 Image][image2]
+![Test 3 Image][image3]
+![Test 4 Image][image4]
+![Test 5 Image][image5]
+![Test 6 Image][image6]
+
 ---
 
 ### Video Implementation
