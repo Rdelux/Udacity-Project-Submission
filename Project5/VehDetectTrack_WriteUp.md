@@ -108,10 +108,4 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 ### Discussion
 
-The approach and techniques I used to implement the pipeline to detect and track the vehicles were discussed above.  Several false positive were still identified in the video stream.  
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
-Different search pattern for top and side detected cars for tracking
-
-
+The approach and techniques I used to implement the pipeline to detect and track the vehicles were discussed above.  Several false positive were still identified in the video stream.  A more robost tracking approach should be used to eliminate these false position.  For example, positive identification should not occur in areas that vehicle can't enter into the frame, such as right in front of the observer.  The bounding boxes for the vehicle was designed to have a smooth transition in changing size but the result is still not ideal.  I think the tracking algorithm and the box size control codes should be improve in future revisions.  Although it only takes 5 minutes to process the video, the ideal situation is 50 seconds since this is the length of the video.  If I can achieve 50 seconds of video processing time, then I will be able to track vehicle in near real-time.  The feature vectors may be reduced in length to improve classification time.  Seeding windows in the initial detection can be more intelligent if lane detection information was used to define a better search area. 
