@@ -73,11 +73,14 @@ For robustness, simplicity and performance, I used a linear Support Vector Machi
 
 ### Sliding Window Search
 
-#### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+### Implementation of sliding window search
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+Once the classifier was trained, the next step in this project is to devise a scheme to detect and track the vehicles on the road.  In order to search for features in the image or video stream that resemble a car, a region or a window was defined and it was systematically move around to determine if a group of pixel can be identified as "car".  This is called a sliding window search.  The basic window search function was given by the Udacity course notes, however I implemented the sliding window search function by modifying the given function in order to achieve robustness and efficiency in detecting and track vehicles in the video stream.  
+The main sliding window search function was implemented inside the 'find_cars' function.  A region in the given image will be specified by a "box's" corner positions, which are ystart, ystop, xstart, and xstop in code line 355.  Vehicles are assumed to enter into the view from the top and on the right-hand side of the image, since the vehicle is driving on the left lane of the road and did not change lane.  The size of the window should reflect the size of the vehicle appear on the image, therefore multiple scale is required to capture vehicle of different size and at different distance from the observer.  Hence the window "scale" is also an input to the 'find_cars' function.  The window was slide across the region of an image in the y and x directions by the "step" size provided to the function.  In this case, the step size is 2 as suggested in the Udacity course material, and it had shown satisfying results.  The loop for the sliding window search is mainly implemented in code lines 383 to 410.
+In order to test the classifier, I developed a testing code to test the classifier on a number of test images in code cell number 11, which correspond to code line number 579 to 607.  Given the specific location of the observer in the images and video, I narrowed the search region between 450 and 1280 x-pixel location for the width, and between 350 to 650 y-pixel location for the height of the image.  Since vehicle at the top part of the image will appear to be small, therefore a small window size should be used to search for vehicles.  A scale factor of 0.8 was used for this top portion of the image.  Additional multi-scale size windows were used to identify vehicles that are closer to the observer.  They include x1.5, x2 and x2.5 scale windows.  Although the largest vehicle appear in the video required a x3.5 scale window to encompress all the features, the heatmap technique explained in the next step will conglomerate all the smaller windows.  These multi-scale windows search are called in code line number 585 to 588.
 
-![alt text][image3]
+
+
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
