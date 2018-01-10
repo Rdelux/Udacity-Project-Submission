@@ -61,11 +61,13 @@ These values are declared in code cell number 7 between lines 293 to 302.
 
 
 
+
 ### Training a classifier using your selected HOG features and color features
 
 Prior to training a classifier, I check the number of images used for "Car" vs "non-Car" images to ensure that the data sets are balance.  The "non-Car" data set only has 2% more data than the "Car" data set, therefore it is assumed that the data set are sufficiently balanced.
 
 For robustness, simplicity and performance, I used a linear Support Vector Machine (SVM) approach to build a classifier.  The first step for training the classifier is to prepare the data in the correct format.  "Cars" and "non-Cars" data were formatted to a 1-D vector in code line 318.  The feature vector created was then normalized by scaling their values (code line 303).   Since the data sets were loaded as "cars" and "non-cars", there are only 2 classes.  Car images are label with "1" and non-car images are labelled with "0" (code line number 329).  In order to test the accuracy of the trained linear SVM classifier, I split the data set into a training data set and a testing data set.  The testing data set represent only 20% of the entire data set. A linear SVM classifier was defined and used to train the data set in code line number 338 and 340.  The effectiveness and accuracy of the classifier was testing in code line number 342.  The final accuracy was found to be approximately 98.7% using the parameters listed above.  The accuracy changes slightly everytime when I retrain the classifier, which indicate the random sampling nature of the training and testing data set.  The difference in accuracy value is neglible and hence classifier is determined to be stable.
+
 
 
 ### Implementation of sliding window search
@@ -75,6 +77,7 @@ Once the classifier was trained, the next step in this project is to devise a sc
 The main sliding window search function was implemented inside the 'find_cars' function.  A region in the given image will be specified by a "box's" corner positions, which are ystart, ystop, xstart, and xstop in code line 355.  Vehicles are assumed to enter into the view from the top and on the right-hand side of the image, since the vehicle is driving on the left lane of the road and did not change lane.  The size of the window should reflect the size of the vehicle appear on the image, therefore multiple scale is required to capture vehicle of different size and at different distance from the observer.  Hence the window "scale" is also an input to the 'find_cars' function.  The window was slide across the region of an image in the y and x directions by the "step" size provided to the function.  In this case, the step size is 2 as suggested in the Udacity course material, and it had shown satisfying results.  The loop for the sliding window search is mainly implemented in code lines 400 to 427.  A block size of 64 was used as it was suggested in Udacity course material and it was proven to be effective.
 
 In order to test the classifier, I developed a testing code to test the classifier on a number of test images in code cell number 11, which correspond to code line number 599 to 624.  Given the specific location of the observer in the images and video, I narrowed the search region between 450 and 1280 x-pixel location for the width, and between 350 to 650 y-pixel location for the height of the image.  Since vehicle at the top part of the image will appear to be small, therefore a small window size should be used to search for vehicles.  A scale factor of 0.8 was used for this top portion of the image.  Additional multi-scale size windows were used to identify vehicles that are closer to the observer.  They include x1.5, x2 and x2.5 scale windows.  Although the largest vehicle appear in the video required a x3.5 scale window to encompress all the features, the heatmap technique explained in the next step will conglomerate all the smaller windows.  These multi-scale windows search are called in code line number 602 to 605.
+
 
 
 ### Test Image Sample for Vehicle Detection and Classifier Optimization
@@ -97,7 +100,7 @@ In addition, I know that vehicles that come into the view of the observer will e
 
 ### Video Implementation
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./VehDetectTrack_Video.mp4)
 
 
 ### False positives and combining overlapping bounding boxes.
