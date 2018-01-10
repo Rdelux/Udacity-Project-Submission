@@ -496,7 +496,7 @@ def processFrame(img):
         boxes = []                                               # List of windows to store found car boxes
         
         # Search for cars in different regions of the image as vehichle enter into the view
-        boxes = find_cars(img, 400, 460, 300, 1000, 0.8, 3)            # forward vehicle approach 
+        boxes = find_cars(img, 400, 460, 300, 1000, 0.8, 2)            # forward vehicle approach 
         boxes += find_cars(img, 400, 680, 950, 1280, 2.0, 2)           # RHS vehicle entering - big car scale 2.0 
         boxes += find_cars(img, 400, 680, 950, 1280, 1.5, 2)           # RHS vehicle entering - smaller car scale 1.5
         
