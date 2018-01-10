@@ -24,13 +24,11 @@ The Rubric Points are listed in this following link: https://review.udacity.com/
 
 ---
 
-
-
 ### Histogram of Oriented Gradients (HOG)
 
 In order to create a feature set for training a classifier, the feature set needs to be robust and effective.  Even with a rich data set, generalization and over-fitting could be an issue, therefore Histogram of Oriented Gradients (HOG) technique was used in the project to identify vehicle objects.  The function implementation for this step is contained in the second code cell of the submitted IPython notebook (or in lines 150 through 164 of the file called `VehDetectTrack_Submit.py`).  
 
-I started by reading in all the `vehicle` and `non-vehicle` images, this is done in third code cell of the submitted IPython notebook.  Here are some examples of the `vehicle` and `non-vehicle` classes:
+I started by reading in all the `Cars` and `non-Cars` images, this is done in third code cell of the submitted IPython notebook.  Here are some examples of the `Cars` and `non-Cars` classes:
 
 ![Vehicle Class][image7]
 
@@ -59,7 +57,7 @@ Other parameters for HOG feature extraction includes number of orientation bins,
 | hog_channel | 0 |                                                 
 | spatial_size | (16, 16) |
 
-These values are declared in code cell number 7 between lines 276 to 281.
+These values are declared in code cell number 7 between lines 293 to 302.
 
 
 
@@ -67,7 +65,7 @@ These values are declared in code cell number 7 between lines 276 to 281.
 
 Prior to training a classifier, I check the number of images used for "Car" vs "non-Car" images to ensure that the data sets are balance.  The "non-Car" data set only has 2% more data than the "Car" data set, therefore it is assumed that the data set are sufficiently balanced.
 
-For robustness, simplicity and performance, I used a linear Support Vector Machine (SVM) approach to build a classifier.  The first step for training the classifier is to prepare the data in the correct format.  "Cars" and "non-Cars" data were formatted to a 1-D vector in code line 301.  The feature vector created was then normalized by scaling their values (code line 303).   Since the data sets were loaded as "cars" and "non-cars", there are only 2 classes.  Car images are label with "1" and non-car images are labelled with "0" (code line number 312).  In order to test the accuracy of the trained linear SVM classifier, I split the data set into a training data set and a testing data set.  The testing data set represent only 20% of the entire data set. A linear SVM classifier was defined and used to train the data set in code line number 321 and 323.  The effectiveness and accuracy of the classifier was testing in code line number 325.  The final accuracy was found to be approximately 98.7% using the parameters listed above.  The accuracy changes slightly everytime when I retrain the classifier, which indicate the random sampling nature of the training and testing data set.  The difference in accuracy value is neglible and hence classifier is determined to be stable.
+For robustness, simplicity and performance, I used a linear Support Vector Machine (SVM) approach to build a classifier.  The first step for training the classifier is to prepare the data in the correct format.  "Cars" and "non-Cars" data were formatted to a 1-D vector in code line 318.  The feature vector created was then normalized by scaling their values (code line 303).   Since the data sets were loaded as "cars" and "non-cars", there are only 2 classes.  Car images are label with "1" and non-car images are labelled with "0" (code line number 329).  In order to test the accuracy of the trained linear SVM classifier, I split the data set into a training data set and a testing data set.  The testing data set represent only 20% of the entire data set. A linear SVM classifier was defined and used to train the data set in code line number 338 and 340.  The effectiveness and accuracy of the classifier was testing in code line number 342.  The final accuracy was found to be approximately 98.7% using the parameters listed above.  The accuracy changes slightly everytime when I retrain the classifier, which indicate the random sampling nature of the training and testing data set.  The difference in accuracy value is neglible and hence classifier is determined to be stable.
 
 
 
@@ -76,8 +74,8 @@ For robustness, simplicity and performance, I used a linear Support Vector Machi
 ### Implementation of sliding window search
 
 Once the classifier was trained, the next step in this project is to devise a scheme to detect and track the vehicles on the road.  In order to search for features in the image or video stream that resemble a car, a region or a window was defined and it was systematically move around to determine if a group of pixel can be identified as "car".  This is called a sliding window search.  The basic window search function was given by the Udacity course notes, however I implemented the sliding window search function by modifying the given function in order to achieve robustness and efficiency in detecting and track vehicles in the video stream.  
-The main sliding window search function was implemented inside the 'find_cars' function.  A region in the given image will be specified by a "box's" corner positions, which are ystart, ystop, xstart, and xstop in code line 355.  Vehicles are assumed to enter into the view from the top and on the right-hand side of the image, since the vehicle is driving on the left lane of the road and did not change lane.  The size of the window should reflect the size of the vehicle appear on the image, therefore multiple scale is required to capture vehicle of different size and at different distance from the observer.  Hence the window "scale" is also an input to the 'find_cars' function.  The window was slide across the region of an image in the y and x directions by the "step" size provided to the function.  In this case, the step size is 2 as suggested in the Udacity course material, and it had shown satisfying results.  The loop for the sliding window search is mainly implemented in code lines 383 to 410.
-In order to test the classifier, I developed a testing code to test the classifier on a number of test images in code cell number 11, which correspond to code line number 579 to 607.  Given the specific location of the observer in the images and video, I narrowed the search region between 450 and 1280 x-pixel location for the width, and between 350 to 650 y-pixel location for the height of the image.  Since vehicle at the top part of the image will appear to be small, therefore a small window size should be used to search for vehicles.  A scale factor of 0.8 was used for this top portion of the image.  Additional multi-scale size windows were used to identify vehicles that are closer to the observer.  They include x1.5, x2 and x2.5 scale windows.  Although the largest vehicle appear in the video required a x3.5 scale window to encompress all the features, the heatmap technique explained in the next step will conglomerate all the smaller windows.  These multi-scale windows search are called in code line number 585 to 588.
+The main sliding window search function was implemented inside the 'find_cars' function.  A region in the given image will be specified by a "box's" corner positions, which are ystart, ystop, xstart, and xstop in code line 355.  Vehicles are assumed to enter into the view from the top and on the right-hand side of the image, since the vehicle is driving on the left lane of the road and did not change lane.  The size of the window should reflect the size of the vehicle appear on the image, therefore multiple scale is required to capture vehicle of different size and at different distance from the observer.  Hence the window "scale" is also an input to the 'find_cars' function.  The window was slide across the region of an image in the y and x directions by the "step" size provided to the function.  In this case, the step size is 2 as suggested in the Udacity course material, and it had shown satisfying results.  The loop for the sliding window search is mainly implemented in code lines 400 to 427.
+In order to test the classifier, I developed a testing code to test the classifier on a number of test images in code cell number 11, which correspond to code line number 599 to 624.  Given the specific location of the observer in the images and video, I narrowed the search region between 450 and 1280 x-pixel location for the width, and between 350 to 650 y-pixel location for the height of the image.  Since vehicle at the top part of the image will appear to be small, therefore a small window size should be used to search for vehicles.  A scale factor of 0.8 was used for this top portion of the image.  Additional multi-scale size windows were used to identify vehicles that are closer to the observer.  They include x1.5, x2 and x2.5 scale windows.  Although the largest vehicle appear in the video required a x3.5 scale window to encompress all the features, the heatmap technique explained in the next step will conglomerate all the smaller windows.  These multi-scale windows search are called in code line number 602 to 605.
 
 
 ### Test Image Sample for Vehicle Detection and Classifier Optimization
@@ -91,9 +89,10 @@ I used 4 different window scale to look for all car feature in the 6 test images
 ![Test 5 Image][image5]
 ![Test 6 Image][image6]
 
+All car assets were correctly identified by the classifier and the time requied for the search is recorded.  Given the number of frames of the video, which is 1261 frames, the estimated time for completing this exhaustive window search is approximately 50 minutes.  This is way too long for video processing, therefore an improved scheme need to be developed to streamline the bottle neck process, which is the sliding window search process.
+First of all, since the relative velocity between the observer and the surrounding vehicle is relatively low in the video, therefore not all frames are required to detect and track the vehicles.  For this reason, I implenmented a toggle switch defined by the global variable "includFrame" to sample every other frame of the video stream instead effective reducing half of the processing time.  This is mainly implemented in code line 564 to 567 inside the 'processFrame' function, which is the main function for processing the video frames.
+In addition, I know that vehicles that come into the view of the observer will either enter from the top and right hand side of the image, therefore I am going to focus on the initial vehicle search at those locations.  The plan is to first detect a vehicle entering into the view and then we can search around that location to identify where the vehicle has moved to.  This tracking mechanism will drastically reduce the number of window search operation required.  Even if we need to generalize this process to include the left of the observer, there's no way to test the pipeline for its robustness, therefore the left-hand side of the observer is omitted from the search region.  Once the initial search windows identified a vehicle (code line 516 to 518), search perimeters were defined as "searchWidth" and "searchHeight".  Literature search and experimentation identified the values indicated in code line 523 and the search perimeter parameters were defined.  Multi-scale search windows were used in subsequent steps to refine the search 
 
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ### Video Implementation
 
@@ -107,16 +106,7 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
+false positive - 531 to 540 sensible exclusion
 
 
 ---
@@ -126,4 +116,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+
+Different search pattern for top and side detected cars for tracking
+
 
