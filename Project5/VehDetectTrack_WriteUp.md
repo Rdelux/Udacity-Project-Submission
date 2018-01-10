@@ -80,11 +80,9 @@ The main sliding window search function was implemented inside the 'find_cars' f
 In order to test the classifier, I developed a testing code to test the classifier on a number of test images in code cell number 11, which correspond to code line number 579 to 607.  Given the specific location of the observer in the images and video, I narrowed the search region between 450 and 1280 x-pixel location for the width, and between 350 to 650 y-pixel location for the height of the image.  Since vehicle at the top part of the image will appear to be small, therefore a small window size should be used to search for vehicles.  A scale factor of 0.8 was used for this top portion of the image.  Additional multi-scale size windows were used to identify vehicles that are closer to the observer.  They include x1.5, x2 and x2.5 scale windows.  Although the largest vehicle appear in the video required a x3.5 scale window to encompress all the features, the heatmap technique explained in the next step will conglomerate all the smaller windows.  These multi-scale windows search are called in code line number 585 to 588.
 
 
+### Test Image Sample for Vehicle Detection and Classifier Optimization
 
-
-#### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+I used 4 different window scale to look for all car feature in the 6 test images, identified car feature is represented by a blue box and the associated heatmap are shown here:
 
 ![Test 1 Image][image1]
 ![Test 2 Image][image2]
@@ -93,7 +91,9 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ![Test 5 Image][image5]
 ![Test 6 Image][image6]
 
----
+
+
+Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ### Video Implementation
 
