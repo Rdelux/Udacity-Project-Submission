@@ -22,7 +22,7 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 ### uWebSocketIO Implementation
 
-uWebSocketIO is a WebSocket and HTTP implementation for web clients and servers.  It is used to facilitates the connection between the simulator and Extended Kalman filter C++ code, which act as the client.
+uWebSocketIO is a WebSocket and HTTP implementation for web clients and servers.  It is used to facilitates the connection between the simulator and Extended Kalman filter C++ code, which act as the web server.
 
 Since macOS was used in this project, [Homebrew](http://brew.sh) was installed in order to install all the required dependencies.  Using the provided setup script, all the necessary libraries required for uWebSocketIO implementation was installed. 
 
@@ -37,7 +37,38 @@ In addition, the root mean squared error (RMSE) is computed by comparing the EKF
 
 ![alt text][image1]
 
+In order to implement the EKF algorithm, C++ codes were developed and organized in several .cpp and header files. Some of the important codes for implementation are discussed in the following sections. 
 
+#### main.cpp
+The main.cpp code communicates with the simulator through the uWebSocketIO.  The code reads in the LiDAR and RaDar sensor measurement data from the client and pass the information to FusionEKF.cpp and kalman_filter.cpp for Kalman filter processing.  The main.cpp code also calls a function to compare the ground truth and the EKF result to provide the RMSE information.
+
+#### FusionEKF.cpp
+Initializations of the kalman filter and the associated variables are performed in this file.  Then the code calls the predict function and the update function.  The code also output the state estimate and the uncertainty covariance at every timestep.  The following EKF elements were initialized:
+* Measurement covariance matrices for LiDAR and RaDar (R_laser and R_radar)
+* Measurement function matrix for LiDAR (H_laser)
+* Jacobian matrix for RaDAR (Hj_ and call tools.cpp to calculate the matrix at every timestep)
+* Uncertainty covariance matrix (P_)
+* State estimate vector (x_)
+* State transition matrix (F_)
+* Process covariance matrix (Q_)
+
+RaDAR measurement is converted from Polar coordinates to Cartesian coordinate to generate the state estimate vector.  Timestep is calculated in this file based on data input. Error prevention codes were implemented in order to avoid invalid elements in Jacobian matrix.  This is achieved by assigning a threshold if the position values (px and py) are too small.
+
+
+
+
+
+
+FusionEKF.cpp - initializes the filter, calls the predict function, calls the update function
+kalman_filter.cpp- defines the predict function, the update function for lidar, and the update function for radar
+tools.cpp- function to calculate RMSE and the Jacobian matrix
+The only files you need to modify are FusionEKF.cpp, kalman_filter.cpp, and tools.cpp.
+How the Files Relate to Each Other
+Here is a brief overview of what happens when you run the code files:
+
+Main.cpp reads in the data and sends a sensor measurement to FusionEKF.cpp
+FusionEKF.cpp takes the sensor data and initializes variables and updates variables. The Kalman filter equations are not in this file. FusionEKF.cpp has a variable called ekf_, which is an instance of a KalmanFilter class. The ekf_ will hold the matrix and vector values. You will also use the ekf_ instance to call the predict and update equations.
+The KalmanFilter class is defined in kalman_filter.cpp and kalman_filter.h. You will only need to modify 'kalman_filter.cpp', which contains functions for the prediction and update steps.
 
 
 
