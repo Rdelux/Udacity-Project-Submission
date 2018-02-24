@@ -7,10 +7,19 @@ The goals / steps of this project are the following:
 * Set up and install [uWebSocketIO] for Mac system (https://github.com/uWebSockets/uWebSockets)
 * Implement an Extended Kalman filter in C++ to take LiDAR and RaDAR measurement to track a car's position and velocity
 * Achieve RMSE values less than [.11, .11, 0.52, 0.52] for position in x and y, and velocity in x and y respectively
-* The Extended Kalman filter algorithm should properly initialized and handle the first measurements appropriately
-* The Extended Kalman filter algorithm should first predicts then updates
-* The Extended Kalman filter algorithm should handle subsequent LiDAR and RaDAR measurements
+* The Extended Kalman filter algorithm initializes the first measurements
+* The Extended Kalman filter algorithm first predicts then updates the vehicle's position and velocity
+* The Extended Kalman filter algorithm processes the subsequent LiDAR and RaDAR measurements
 
+The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/748/view)   
+
+---
+
+### uWebSocketIO Implementation
+
+uWebSocketIO is a WebSocket and HTTP implementation for web clients and servers.  It is used to facilitates the connection between the [simulator](https://github.com/udacity/self-driving-car-sim/releases/) and Extended Kalman filter C++ code, which act as the client.
+
+Since macOS was used in this project, [Homebrew](http://brew.sh) was installed in order to install all the required dependencies.  Using the provided setup [Script](https://github.com/udacity/CarND-Extended-Kalman-Filter-Project/blob/94d0aa6fdc5e2b454776b4ef04e7b8a53ef223d7/install-mac.sh), uWebSocketIO was installed. 
 
 
 
