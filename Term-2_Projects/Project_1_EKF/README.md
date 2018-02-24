@@ -62,12 +62,8 @@ The state estimate vector and the uncertainty covariance matrix in the Predict()
 In this file, two functions are define to support the EKF implementation.  The Jacobian matrix required for RaDAR measurement processing is defined in the CalculateJacobian() method.  The performance of the EKF is defined by the RMSE, and the function CalculateRMSE() define and compute the RMSE values.
 
 
+### Results
+The final RMSE values are [0.0973, 0.0855, 0.4513, 0.4399] for [px,py,vx,vy], which is smaller than the target accuracy of [.11, .11, 0.52, 0.52], therefore the result of the EKF implementation is satisfactory.  A sample of the state estimate vector and the uncertainty covariance matrix output is shown below:
 
 
-
-Regardless of the IDE used, every submitted project must
-still be compilable with cmake and make.
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
