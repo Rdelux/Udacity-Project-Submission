@@ -3,8 +3,8 @@ Self-Driving Car Engineer Nanodegree Program
 
 The goals / steps of this project are the following:
 
-* Download the [Term 2 Simulator](https://github.com/udacity/self-driving-car-sim/releases)
-* Set up and install [uWebSocketIO] for Mac system (https://github.com/uWebSockets/uWebSockets)
+* Download the Term 2 Simulator
+* Set up and install uWebSocketIO for Mac system 
 * Implement an Extended Kalman filter in C++ to take LiDAR and RaDAR measurement to track a car's position and velocity
 * Achieve RMSE values less than [.11, .11, 0.52, 0.52] for position in x and y, and velocity in x and y respectively
 * The Extended Kalman filter algorithm initializes the first measurements
