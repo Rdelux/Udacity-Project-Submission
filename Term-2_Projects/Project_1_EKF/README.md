@@ -54,12 +54,16 @@ Initializations of the kalman filter and the associated variables are performed 
 
 RaDAR measurement is converted from Polar coordinates to Cartesian coordinate to generate the state estimate vector.  Timestep is calculated in this file based on data input. Error prevention codes were implemented in order to avoid invalid elements in Jacobian matrix.  This is achieved by assigning a threshold if the position values (px and py) are too small.
 
+#### kalman_filter.cpp
+The EKF equations are implemented in this file.  The predict and update functions are define here.  
+The state estimate vector and the uncertainty covariance matrix in the Predict() method.  The sensor measurement noise(y) is calculated in the Update() method and it is used to update the state estimate vector and the uncertainty covariance by calling the MSRUpdate method.  The UpdateEKF() method is similar to the Update() method but it handles RaDAR measurement since RaDAR measurement processing required non-linear equation in the Cartesian coordinate space.  For RaDAR measurement, the resulting angle phi in the sensor measurement noise vector(y) is adjusted so that it is between -pi and pi.  It is necessary because atan2() returns values between -pi and pi in C++.  This normalization step is achieved by adding or subtracting 2π from the angle until the desired range is realized.
 
 
 
 
 
-FusionEKF.cpp - initializes the filter, calls the predict function, calls the update function
+
+
 kalman_filter.cpp- defines the predict function, the update function for lidar, and the update function for radar
 tools.cpp- function to calculate RMSE and the Jacobian matrix
 The only files you need to modify are FusionEKF.cpp, kalman_filter.cpp, and tools.cpp.
