@@ -71,7 +71,7 @@ The final RMSE values for Dataset #1 are [0.0973, 0.0855, 0.4513, 0.4399] for [p
 
 ![alt text][image2]
 
-The simulation result is shown below:
+The simulation result for Dataset #1 is shown below:
 
 ![alt text][image3]
 
