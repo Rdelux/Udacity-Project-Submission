@@ -13,7 +13,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/Screen Shot 2018-02-24 at 11.21.00 AM.png "EKF Process Flow"
+[image1]: ./images/EKF_Process_Flow.png "EKF Process Flow"
 [image2]: ./Images/Test2_Result.png "Test Image Result"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/748/view)   
