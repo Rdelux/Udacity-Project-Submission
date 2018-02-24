@@ -14,7 +14,11 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/EKF_Process_Flow.png "EKF Process Flow"
-[image2]: ./Images/Test2_Result.png "Test Image Result"
+[image2]: ./images/x_and_P_Output.png "x and P Output"
+[image3]: ./images/Sim_output1.png "Simulation Overview DS1"
+[image4]: ./images/Sim_output3.png "Simulation Closeup DS1"
+
+
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/748/view)   
 
@@ -63,7 +67,19 @@ In this file, two functions are define to support the EKF implementation.  The J
 
 
 ### Results
-The final RMSE values are [0.0973, 0.0855, 0.4513, 0.4399] for [px,py,vx,vy], which is smaller than the target accuracy of [.11, .11, 0.52, 0.52], therefore the result of the EKF implementation is satisfactory.  A sample of the state estimate vector and the uncertainty covariance matrix output is shown below:
+The final RMSE values for Dataset #1 are [0.0973, 0.0855, 0.4513, 0.4399] for [px,py,vx,vy], which is smaller than the target accuracy of [.11, .11, 0.52, 0.52], therefore the result of the EKF implementation is satisfactory.  A sample of the state estimate vector and the uncertainty covariance matrix output is shown below:
+
+![alt text][image2]
+
+The simulation result is shown below:
+
+![alt text][image3]
+
+Note that the LiDAR measure is shown in red, the RaDAR measurement is shown in blue and the EKF output is shown in green:
+
+![alt text][image4]
+
+
 
 
 
