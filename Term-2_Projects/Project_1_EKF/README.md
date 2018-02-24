@@ -11,15 +11,31 @@ The goals / steps of this project are the following:
 * The Extended Kalman filter algorithm first predicts then updates the vehicle's position and velocity
 * The Extended Kalman filter algorithm processes the subsequent LiDAR and RaDAR measurements
 
+[//]: # (Image References)
+
+[image1]: ./images/Screen Shot 2018-02-24 at 11.21.00 AM.png "EKF Process Flow"
+[image2]: ./Images/Test2_Result.png "Test Image Result"
+
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/748/view)   
 
 ---
 
 ### uWebSocketIO Implementation
 
-uWebSocketIO is a WebSocket and HTTP implementation for web clients and servers.  It is used to facilitates the connection between the [simulator](https://github.com/udacity/self-driving-car-sim/releases/) and Extended Kalman filter C++ code, which act as the client.
+uWebSocketIO is a WebSocket and HTTP implementation for web clients and servers.  It is used to facilitates the connection between the simulator and Extended Kalman filter C++ code, which act as the client.
 
-Since macOS was used in this project, [Homebrew](http://brew.sh) was installed in order to install all the required dependencies.  Using the provided setup [Script](https://github.com/udacity/CarND-Extended-Kalman-Filter-Project/blob/94d0aa6fdc5e2b454776b4ef04e7b8a53ef223d7/install-mac.sh), uWebSocketIO was installed. 
+Since macOS was used in this project, [Homebrew](http://brew.sh) was installed in order to install all the required dependencies.  Using the provided setup script, all the necessary libraries required for uWebSocketIO implementation was installed. 
+
+### Extended Kalman Filter Code Implementation
+
+The main steps an Extended Kalman filter (EKF) code should include the following:
+* initializing Kalman filter variables
+* predicting the position (x,y) and velocity (vx,vy) of the object after a time step Δt
+* updating where the object is based on sensor measurements - LiDAR and RaDAR measurements
+
+In addition, the root mean squared error (RMSE) is computed by comparing the EKF results and the ground truth.  The general process flow of the EKF algorithm is shown below:
+
+![alt text][image1]
 
 
 
@@ -28,15 +44,6 @@ Since macOS was used in this project, [Homebrew](http://brew.sh) was installed i
 
 
 
-Once the install for uWebSocketIO is complete, the main program can be built and run by doing the following from the project top directory.
-
-1. mkdir build
-2. cd build
-3. cmake ..
-4. make
-5. ./ExtendedKF
-
-Tips for setting up your environment can be found [here](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/23d376c7-0195-4276-bdf0-e02f1f3c665d)
 
 Note that the programs that need to be written to accomplish the project are src/FusionEKF.cpp, src/FusionEKF.h, kalman_filter.cpp, kalman_filter.h, tools.cpp, and tools.h
 
