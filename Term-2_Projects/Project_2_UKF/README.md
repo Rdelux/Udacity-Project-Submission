@@ -15,10 +15,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/EKF_Process_Flow.png "EKF Process Flow"
-[image2]: ./images/x_and_P_Output.png "x and P Output"
-[image3]: ./images/Sim_output1.png "Simulation Overview DS1"
-[image4]: ./images/Sim_output3.png "Simulation Closeup DS1"
+[image1]: ./images/L_Only_Overview.png "L_Only_Overview"
+[image2]: ./images/L_Only_closeup.png "L_Only_closeup"
+[image3]: ./images/R_Only_Overview.png "R_Only_Overview"
+[image4]: ./images/R_Only_closeup.png "R_Only_closeup"
+[image5]: ./images/R_and_L_Overview.png "R_and_L_Overview"
+[image6]: ./images/R_and_L_closeup.png "R_and_L_closeup"
+
+
 
 
 
