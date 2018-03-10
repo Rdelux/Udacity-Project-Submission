@@ -28,15 +28,9 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 ---
 
-### uWebSocketIO Implementation
-
-uWebSocketIO is a WebSocket and HTTP implementation for web clients and servers.  It is used to facilitates the connection between the simulator and Unscented Kalman filter C++ code, which act as the web server.
-
-Since macOS was used in this project, [Homebrew](http://brew.sh) was installed in order to install all the required dependencies.  Using the provided setup script, all the necessary libraries required for uWebSocketIO implementation was installed. 
-
 ### Unscented Kalman Filter Code Implementation
 
-The main steps of an Unscented Kalman filter (EKF) code include a prediction step and an update step.  In a prediction step, the sigma points are generated based on the state vector and its dimension, process covariance and a design parameter.  The predicted mean and covariance of the state vector are obtained by predicting the sigma point based on the previous time-step.  In the update step, the measurement is predicted and mapped from the predicted sigma points, followed by a state update.  In addition, the root mean squared error (RMSE) is computed by comparing the UKF results and the ground truth.  
+The main steps of an Unscented Kalman filter (UKF) code include a prediction step and an update step.  In a prediction step, the sigma points are generated based on the state vector, its dimension, process covariance and a design parameter.  The predicted mean and covariance of the state vector are obtained by predicting the sigma point based on the previous time-step.  In the update step, the measurement is predicted and mapped from the predicted sigma points, followed by a state update.  In addition, the root mean squared error (RMSE) is computed by comparing the UKF results and the ground truth.  
 
 In order to implement the UKF algorithm, C++ codes were developed and organized in several .cpp and header files. Some of the important codes for implementation are briefly discussed in the following sections: 
 
@@ -74,7 +68,7 @@ It can be seen that both charts indicate the NIS values for both Lidar and Radar
 | Lidar Only         		| 88%  							|   
 | Radar Only     	| 90.4% 	|
 | Lidar and Radar (Radar Measurement)     	| 89.2% 	|
-| Lidar and Radar (Lidar Measurement)     	| 91.6.2% 	|
+| Lidar and Radar (Lidar Measurement)     	| 91.6% 	|
 
 The final RMSE values for Dataset #1 using both Lidar and Radar measurements are [0.0702, 0.0839, 0.3407, 0.2457] for [px,py,vx,vy], which is smaller than the target accuracy of [.09, .10, .40, .30] , therefore the result of the UKF implementation is satisfactory.  As a comparison, the RMSE for EKF of the same dataset is [0.0973, 0.0855, 0.4513, 0.4399].  The simulation result for dataset #1 are shown below: (note that the LiDAR measure is shown in red, the RaDAR measurement is shown in blue and the UKF output is shown in green)
 
