@@ -69,7 +69,12 @@ In order to assess if the process noise parameters were chosen properly, the Nor
 
 It can be seen that both charts indicate the NIS values for both Lidar and Radar measurements are mostly within the required confidence level, therefore they indicated that the noise parameters were chosen correctly.  The following table shows the NIS values that are within the allowable range for 90% confidence level:
 
-
+| Scenario         		|     Percent of NIS within Range	        					|    
+|:---------------------:|:-------------------------------------:|
+| Lidar Only         		| 88%  							|   
+| Radar Only     	| 90.4% 	|
+| Lidar and Radar (Radar Measurement)     	| 89.2% 	|
+| Lidar and Radar (Lidar Measurement)     	| 91.6.2% 	|
 
 The final RMSE values for Dataset #1 using both Lidar and Radar measurements are [0.0702, 0.0839, 0.3407, 0.2457] for [px,py,vx,vy], which is smaller than the target accuracy of [.09, .10, .40, .30] , therefore the result of the UKF implementation is satisfactory.  As a comparison, the RMSE for EKF of the same dataset is [0.0973, 0.0855, 0.4513, 0.4399].  The simulation result for dataset #1 are shown below: (note that the LiDAR measure is shown in red, the RaDAR measurement is shown in blue and the UKF output is shown in green)
 
