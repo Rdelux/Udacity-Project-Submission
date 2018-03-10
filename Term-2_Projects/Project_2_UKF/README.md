@@ -55,12 +55,13 @@ Three modes of the algorithm were executed in order to compare the RMSE and NIS 
 * Lidar and Radar measurement together
 
 #### Process Noise Standard Deviation Parameter Tuning
-In order to determine the process noise, the standard deviation for the longitudinal acceleration and yaw acceleration need to be estimated.  The maximum acceleration for a vehicle operating in an urban environment rarely exceed 6 m/s^2 as mentioned in the Lesson 8, Topic 31 of the course.  Since the measurement is from a bicycle, the maximum acceleration is even less.  Therefore, it was decided that half the acceleration of a vehicle will be used for bicycle.  Since the maximum longitudinal acceleration is estimated to be 3 m/s^2, the longitudinal acceleration standard deviation was calculated to be 1.5 and the variance is 2.25.  A rounded number of 2.0 was used initially to start the parameter tuning process.  
+In order to determine the process noise, the standard deviation for the longitudinal acceleration and yaw acceleration need to be estimated.  
 
+The maximum acceleration for a vehicle operating in an urban environment rarely exceed 6 m/s^2 as mentioned in the Lesson 8, Topic 31 of the course.  Since the measurement is from a bicycle, the maximum acceleration is even less.  Therefore, it was decided that half the acceleration of a vehicle will be used for bicycle.  Since the maximum longitudinal acceleration is estimated to be 3 m/s^2, the longitudinal acceleration standard deviation was calculated to be 1.5 and the variance is 2.25.  A rounded number of 2.0 was used initially to start the parameter tuning process.  
+
+In order to estimate the yaw acceleration noise, I started by estimating a centrifugal acceleration of 1g, which is equivalent to 9.81 m/s^2.  If we assumed that the radius of a turn is 9.81 m, then the angular velocity to achieve 1g of centrifugal acceleration is 1 rad/s.  Using this maximum angular velocity and assuming an linear acceleration of 3 m/s^s over a 90 degrees turn with a 9.81 m radius, the maximum yaw acceleration is 0.31 rad/s^2, therefore the standard deviation for yaw acceleration noise can be estimated to be 0.02.  When this value was first tested, poor RMSE was observed and the NIS numbers were too high.  This indicates that we are under-estimating the process noise.  The yaw acceleration noise was increased to 1.0 and the results were satisfactory.
 
 ### Results
-
-
 
 The final RMSE values for Dataset #1 are [0.0973, 0.0855, 0.4513, 0.4399] for [px,py,vx,vy], which is smaller than the target accuracy of [.11, .11, 0.52, 0.52], therefore the result of the EKF implementation is satisfactory.  A sample of the state estimate vector and the uncertainty covariance matrix output is shown below:
 
