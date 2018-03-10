@@ -63,17 +63,29 @@ In order to estimate the yaw acceleration noise, I started by estimating a centr
 
 ### Results
 
-The final RMSE values for Dataset #1 are [0.0973, 0.0855, 0.4513, 0.4399] for [px,py,vx,vy], which is smaller than the target accuracy of [.11, .11, 0.52, 0.52], therefore the result of the EKF implementation is satisfactory.  A sample of the state estimate vector and the uncertainty covariance matrix output is shown below:
+In order to assess if the process noise parameters were chosen properly, the Normalized Innovation Squared (NIS) was calculated for the Lidar and Radar measurement prediction.  The Chi Squared test was used to ensure that our measurement hypothesis is true with a confidence level of 90%.  For Radar measurement, which has a dimension of 3, the upper and lower bound of the Chi Squared test are 7.815 and 0.352 respectively.  For Lidar measurement, which as a dimension of 2, the upper and lower bound of the Chi Squared test are 5.991 and 0.103 respectively.  Three cases were considered, they were using Lidar measurement only, using Radar measurement only, and using Lidar and Radar measurements.  The result of the NIS values vs time-steps are illustrated in the chart below.  The top chart shows Lidar and Radar measurements used separately, while the bottow chart illustrate the results of using both Lidar and Radar measurements but the results were plotted separately:
 
+![alt text][image7]
+
+It can be seen that both charts indicate the NIS values for both Lidar and Radar measurements are mostly within the required confidence level, therefore they indicated that the noise parameters were chosen correctly.  The following table shows the NIS values that are within the allowable range for 90% confidence level:
+
+
+
+The final RMSE values for Dataset #1 using both Lidar and Radar measurements are [0.0702, 0.0839, 0.3407, 0.2457] for [px,py,vx,vy], which is smaller than the target accuracy of [.09, .10, .40, .30] , therefore the result of the UKF implementation is satisfactory.  As a comparison, the RMSE for EKF of the same dataset is [0.0973, 0.0855, 0.4513, 0.4399].  The simulation result for dataset #1 are shown below: (note that the LiDAR measure is shown in red, the RaDAR measurement is shown in blue and the UKF output is shown in green)
+
+![alt text][image5]
+![alt text][image6]
+
+Using only Lidar measurement, the RMSE for the same UKF implementation using the same dataset is [0.1086, 0.1009, 0.6201, 0.2836], which is significantly higher than using both Lidar and Radar measurement.  The simulation result is shown below:
+
+![alt text][image1]
 ![alt text][image2]
 
-The simulation result for Dataset #1 is shown below:
+Using only Radar measurement, the RMSE for the same UKF implementation using the same dataset is [0.1627, 0.2241, 0.3978, 0.3041], which is significantly higher than using both Lidar and Radar measurement.  In addition, the position estimate is worse than using Lidar measure, which is expected since Lidar is more superior in measuring position than Radar.  Radar, however, provide a better accuracy in x-velocity estimate than Lidar.  The simulation result is shown below:
 
 ![alt text][image3]
-
-Note that the LiDAR measure is shown in red, the RaDAR measurement is shown in blue and the EKF output is shown in green:
-
 ![alt text][image4]
+
 
 
 
