@@ -23,9 +23,6 @@ The goals / steps of this project are the following:
 [image6]: ./images/R_and_L_closeup.png "R_and_L_closeup"
 
 
-
-
-
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/783/view)   
 
 ---
@@ -57,6 +54,8 @@ Three modes of the algorithm were executed in order to compare the RMSE and NIS 
 * Lidar and Radar measurement together
 
 ### Results
+
+
 The final RMSE values for Dataset #1 are [0.0973, 0.0855, 0.4513, 0.4399] for [px,py,vx,vy], which is smaller than the target accuracy of [.11, .11, 0.52, 0.52], therefore the result of the EKF implementation is satisfactory.  A sample of the state estimate vector and the uncertainty covariance matrix output is shown below:
 
 ![alt text][image2]
