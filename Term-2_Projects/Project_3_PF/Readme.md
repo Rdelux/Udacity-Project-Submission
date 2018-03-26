@@ -36,6 +36,8 @@ In order to implement the UKF algorithm, C++ codes were developed and organized 
 
 #### Weight Update
 
+The weight update step of a particle filter can be further divided into 4 steps.  They are observation transformation, data association, weight update and combining probabilities.
+
 
 #### Resampling
 
