@@ -11,20 +11,15 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/L_Only_Overview.png "L_Only_Overview"
-[image2]: ./images/L_Only_closeup.png "L_Only_closeup"
-[image3]: ./images/R_Only_Overview.png "R_Only_Overview"
-[image4]: ./images/R_Only_closeup.png "R_Only_closeup"
-[image5]: ./images/R_and_L_Overview.png "R_and_L_Overview"
-[image6]: ./images/R_and_L_closeup.png "R_and_L_closeup"
-[image7]: ./images/NIS_Values.png "NIS_Values"
+[image1]: ./images/Pass_Overview.png "Pass_Overview"
+[image2]: ./images/Pass_closeUp.png "Pass_closeUp"
+[image3]: ./images/InAction.png "InAction"
 
-
-The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/783/view)   
+The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/747/view)   
 
 ---
 
-### Unscented Kalman Filter Code Implementation
+### Particle Filter Code Implementation
 
 The main steps of an Unscented Kalman filter (UKF) code include a prediction step and an update step.  In a prediction step, the sigma points are generated based on the state vector, its dimension, process covariance and a design parameter.  The predicted mean and covariance of the state vector are obtained by predicting the sigma point based on the previous time-step.  In the update step, the measurement is predicted and mapped from the predicted sigma points, followed by a state update.  In addition, the root mean squared error (RMSE) is computed by comparing the UKF results and the ground truth.  
 
