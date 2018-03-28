@@ -21,12 +21,9 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 ### Particle Filter Code Implementation
 
-The main steps of implementing a particle filter include initializaton, prediction, weight update and resampling.  
+The main steps of implementing a particle filter include initializaton, prediction, weight update and resampling.  A simulator was used in this project, which provide a graphical visualization of how the car was driven, the landmark measurements and the particle transition calculation results.  
 
-
-In a prediction step, the sigma points are generated based on the state vector, its dimension, process covariance and a design parameter.  The predicted mean and covariance of the state vector are obtained by predicting the sigma point based on the previous time-step.  In the update step, the measurement is predicted and mapped from the predicted sigma points, followed by a state update.  In addition, the root mean squared error (RMSE) is computed by comparing the UKF results and the ground truth.  
-
-In order to implement the UKF algorithm, C++ codes were developed and organized in several .cpp and header files. Some of the important codes for implementation are briefly discussed in the following sections: 
+In order to implement the particle fileter, C++ codes were developed, which is included in this repo - particle_filter.cpp.  No other files were modified. The major components of the code are briefly discussed in the following sections: 
 
 #### Initialization
 
