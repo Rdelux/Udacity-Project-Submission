@@ -50,7 +50,8 @@ The final step of localization using a particle filter is resampling.  By resamp
 
 Using the modified code and the simulator provided, visualization of how the car is being track by particle can be seen.  The particle filter successfully localize the vehicle within the desired accuracy.  In addition, the particle run within the specified time of 100 seconds.  This is shown in the images below:
 
-![alt text][image1]
 ![alt text][image2]
+
+This project is completed successfully!
 
 
