@@ -11,9 +11,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/Pass_Overview.png "Pass_Overview"
-[image2]: ./images/Pass_closeUp.png "Pass_closeUp"
-[image3]: ./images/InAction.png "InAction"
+[video1]: ./images/Normal_Driving.mov "Normal"
+
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/824/view)   
 
