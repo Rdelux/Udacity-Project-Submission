@@ -60,6 +60,16 @@ Manual tuning of the hyperparameters were used in the code implementation.  The 
 |:--------------|-------------:|
 | Vehicle speed            |50 mph        |
 | Kp     |    0.1     |
-| Kd | 2 |
+| Kd | 2.0 |
 | Ki | 0.0001 |
 
+Going a step further, the speed was subsequently increased to 60 mph and the vehicle behaviour became marginally stable.  The vehicle was able to stay on the track for one lap, however it eventually went off the track after an extended period of time of testing.  At 70 mph, the vehicle exhibited high oscillation behaviour and the vehicle went off the track and flipped.  At higher speed, the current model under-steer thus the vehicle does not response fast enough at sharp corners.  In order to combat this effect, a higher Kp was chosen.  As Kp becomes higher, Kd needs to be higher too in order to reduce oscillation and overshooting.  Ki remains unchanged assuming system bias is independent of vehicle speed.  The following parameters allows the vehicle to stay on the track even after long period of autonomous driving even though elevated oscillation behaviour persist.
+
+| Parameter     |    Value    |
+|:--------------|-------------:|
+| Vehicle speed            |70 mph        |
+| Kp     |    0.13     |
+| Kd | 4.0 |
+| Ki | 0.0001 |
+
+The resultant vehicle behaviour at 50 mph can be seen in the video Normal_Driving.mov in the images folder.
