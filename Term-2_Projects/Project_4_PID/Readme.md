@@ -11,8 +11,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[video1]: ./images/Normal_Driving.mov "Normal"
 [image1]: ./images/High_Speed_Cornering.png "HSC"
+[image2]: ./images/Recovering.png "Recover"
 
 
 
@@ -34,4 +34,6 @@ In order to steer the vehicle back to the center of the track, the CTE was calcu
 
 For the proportional response, Kp is used to scale the CTE to provide a steering response.  As a result, the higher the CTE, the higher the steering response is.  This characteristic of control allows the vehicle to steer quickly back to the center of the track thus avoiding leaving the track area.  This is particlarly important during high speed cornering.
 
-![alt text][video1]
+![alt text][image1]
+
+![alt text][image2]
