@@ -24,16 +24,31 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 Using the simulator provided in the Behavioral Cloning Project, a vehicle is to be maneuvered by a PID controller algorithm, implemented in C++ code.  The PID class is implemented in the PID.cpp and PID.h files.  The simulator provides the cross track error (CTE) to the code and the PID algorithm will compute the steering angle in order to minimize the deviation or error of the vehicle relative to the track.  
 
-#### Initialization
+### Initialization
 
 The initialization of the algorithm was implemented in the PID::Init method, where the proportional (Kp), integral (Ki), and derivative (Kd) controller constants were statically initialized.  The errors used to calculate the required steering angle associated with each of the three controller parameters were also initialized in PID.cpp file, code line 14 to 26.  The selection of the controller constants will be discussed in the result section.  A preset vehicle was also chosen based on the criteria specified in the rubric points, namely safety operation and speed limit.
 
-#### Error Calculation
+### Error Calculation
 
 In order to steer the vehicle back to the center of the track, the CTE was calculated and provided by the simulator.  Using the CTE, the steering response can be efficiently described by Kp, Ki and Kd.
 
-For the proportional response, Kp is used to scale the CTE to provide a steering response.  As a result, the higher the CTE, the higher the steering response is.  This characteristic of control allows the vehicle to steer quickly back to the center of the track thus avoiding leaving the track area.  This is particlarly important during high speed cornering.
+#### Proportional Controller
+
+For the proportional response, Kp is used to scale the CTE to provide a steering response.  As a result, the higher the CTE, the higher the steering response is.  This characteristic of control allows the vehicle to steer quickly back to the center of the track thus avoiding leaving the track area.  This is particlarly important during high speed cornering.  The following picture shows that the vehicle is approaching a corner at high speed (54 mph)
 
 ![alt text][image1]
 
+As the vehicle deviate from the center of the track by a significant amount, the CTE will be high, which cause the proportional error to be high.  The parameter Kp will control the required steering response to steer the vehicle back to the desired location.  The picture below shows that the vehicle recover from under-steering and prevent the vehicle from leaving the track:
+
 ![alt text][image2]
+
+The calculation of the proportional error is implemented in the PID.cpp file, line 32, which is simply equal to the CTE.
+
+#### Derivative Controller
+
+Using the proportional controller, the vehicle response from center track departure can be controlled.  The higher the vehicle speed, the higher the vehicle response needs to be in order for the vehicle to stay on the track.  However, the higher the proportional constant Kp, the more overshoot that the vehicle trajectory would be.  This results in high vehicle oscillation behaviour, which is undesirable for safety, efficiency and comfort concern. As the oscillation became too excessive or unbound, the vehicle would leave the road thus fail the criteria of this project.  In order to control the oscillation, the derivative controller was implemented to address this concern.  The derivative constant, Kd, provides a scaling factor for the CTE rate of change, thus damping out the proportional response.  The 
+
+#### Integral Controller
+
+
+### Results
