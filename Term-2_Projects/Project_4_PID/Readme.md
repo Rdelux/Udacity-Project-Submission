@@ -46,9 +46,20 @@ The calculation of the proportional error is implemented in the PID.cpp file, li
 
 #### Derivative Controller
 
-Using the proportional controller, the vehicle response from center track departure can be controlled.  The higher the vehicle speed, the higher the vehicle response needs to be in order for the vehicle to stay on the track.  However, the higher the proportional constant Kp, the more overshoot that the vehicle trajectory would be.  This results in high vehicle oscillation behaviour, which is undesirable for safety, efficiency and comfort concern. As the oscillation became too excessive or unbound, the vehicle would leave the road thus fail the criteria of this project.  In order to control the oscillation, the derivative controller was implemented to address this concern.  The derivative constant, Kd, provides a scaling factor for the CTE rate of change, thus damping out the proportional response.  The derivative error can be calculated by dividing the difference in CTE in two different timestep by the change in time.  Assuming the change is time is equals to 1, the derivative error was calculated in line 35 of the PID.cpp file.
+Using the proportional controller, the vehicle response from center track departure can be controlled.  The higher the vehicle speed, the higher the vehicle response needs to be in order for the vehicle to stay on the track.  However, the higher the proportional constant Kp, the more overshoot that the vehicle trajectory would be.  This results in high vehicle oscillation behaviour, which is undesirable for safety, efficiency and comfort concern. As the oscillation became too excessive or unbound, the vehicle would leave the road thus fail the criteria of this project.  The oscillation behaviour of the vehicle can be seen in a video file - Oscillation.mov in the images folder.  In order to control the oscillation, the derivative controller was implemented to address this concern.  The derivative constant, Kd, provides a scaling factor for the CTE rate of change, thus damping out the proportional response.  The derivative error can be calculated by dividing the difference in CTE in two different timestep by the change in time.  Assuming the change is time is equals to 1, the derivative error was calculated in line 35 of the PID.cpp file.  
 
 #### Integral Controller
 
+If there is no drift or bias in the vehicle system, the PD controller will be sufficient to efficiently control the vehicle.  However, every physically will have some bias, therefore it is important to incorporate a integral controller in a controller.  The integral error is a function of time and it is scaled by the integral constant Ki in the code.  The integral is the sum of of CTE over time, which is designed to capture the inherent system bias.  Since the integral error accumulate the CTE over time, it is expected that the scaling constant is small.  This implementation is done in line 39 of the PID.cpp file.
 
 ### Results
+
+Manual tuning of the hyperparameters were used in the code implementation.  The proportional coefficient, Kp, was tuned first in order to provide the fundamental restoring steering response to keep the vehicle on the track.  Oscillation and overshoot was observed, therefore the derivative coefficient, Kd, was tuned next.  It is suspected that system bias exist, therefore the integral coefficient was tuned as well.  Once the controller parameters were optimized and successfully control the vehicle to drive around the track, the speed of the vehicle was increased in order to channel my inner Vin Diesel to this project.  By setting the vehicle velocity to 50 mph, the vehicle went off the track during cornering, thus another round of coefficient optimization was done.  The result coefficients required to keep the vehicle on the track at all times and provide a stable trajectory are summarized below: 
+
+| Parameter     |    Value    |
+|:--------------|-------------:|
+| Vehicle speed            |50 mph        |
+| Kp     |    0.1     |
+| Kd | 2 |
+| Ki | 0.0001 |
+
