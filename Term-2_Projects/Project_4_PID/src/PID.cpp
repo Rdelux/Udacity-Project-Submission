@@ -31,7 +31,7 @@ void PID::UpdateError(double cte) {
     // Proportional Controller
     p_error = cte;
     
-    // Differential Controller - change in error
+    // Derivative Controller - change in error
     d_error = cte - p_cte;
     p_cte = cte;
     
