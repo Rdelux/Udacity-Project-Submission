@@ -19,15 +19,17 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 ---
 
-### Particle Filter Code Implementation
+### PID Controller Implementation
 
-The main steps of implementing a particle filter include initializaton, prediction, weight update and resampling.  A simulator was used in this project, which provide a graphical visualization of how the car was driven, the landmark measurements and the particle transition calculation results.  The following figure shows the simulator in action:
-
-![alt text][image3]
-
-In order to implement the particle fileter, C++ codes were developed, which is included in this repo - particle_filter.cpp.  No other files were modified. The major components of the code are briefly discussed in the following sections. 
+Using the simulator provided in the Behavioral Cloning Project, a vehicle is to be maneuvered by a PID controller algorithm, implemented in C++ code.  The PID class is implemented in the PID.cpp and PID.h files.  The simulator provides the cross track error (CTE) to the code and the PID algorithm will compute the steering angle in order to minimize the deviation or error of the vehicle relative to the track.  
 
 #### Initialization
 
-In order to initialize the particle filter, GPS data was used.  Since GPS data is inherently noisy, the given position data for the vehicle as well as the standard deviations were provided.  The Gaussian noise was modelled as a normal distribution around the position data it is implement in line 42 to 44 of the code.  The standard deviation for x position, y position and yaw angle is [0.3, 0.3, 0.01].  Considering a 30 cm on both side of the normal distribution curve, 60 particles were assumed to be adequate for correct localization of the vehicle.  Higher number of particles were used but no significant improvement were observed. Particles were created in this step, which can be seen in line 52 to 58 of the code.
+The initialization of the algorithm was implemented in the PID::Init method, where the proportional (Kp), integral (Ki), and derivative (Kd) controller constants were statically initialized.  The errors used to calculate the required steering angle associated with each of the three controller parameters were also initialized in PID.cpp file, code line 14 to 26.  The selection of the controller constants will be discussed in the result section.  A preset vehicle was also chosen based on the criteria specified in the rubric points, namely safety operation and speed limit.
+
+#### Error Calculation
+
+In order to steer the vehicle back to the center of the track, the CTE was calculated and provided by the simulator.  Using the CTE, the steering response can be efficiently described by Kp, Ki and Kd.
+
+For the proportional response, Kp is used to scale the CTE to provide a steering response.  As a result, the higher the CTE, the higher the steering response is.  This characteristic of control allows the vehicle to steer quickly back to the center of the track thus avoiding leaving the track area.  This is particlarly important during high speed cornering.
 
