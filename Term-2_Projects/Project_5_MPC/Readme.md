@@ -60,14 +60,20 @@ The equation for the aforementioned errors are:
 ![alt text][image3]
 ![alt text][image4]
 
-These are implemented in line 134 - 135 of main.cpp
+These error will be used to define the cost function for optimization and they are implemented in line 134 - 135 of main.cpp
 
 Once the model is defined, the next step is fit a polynormial to define the desire path and preprocess the variables for the MPC algorithm.
 
 ### Polynomial Fitting and MPC Preprocessing
 
+The waypoints of the track are given by the lake_track_waypoints.csv file and are incorporated into the code via the data JSON object in line 88 - 89 of main.cpp as ptsx and ptsy.  Since both the position of the waypoints and the vehicle are given in global map coordinate, the first step for MPC preprocessing is to transform the waypoints to the vehicle coordinate system, which include a translational and rotational transform.  These transforms are performed in line 111 - 112 for the translational transform and line 113 - 114 for the rotational transform.
+
+Using the polyfit() function, a third order polynomial curve can be created using the transformed waypoints.  This curve identify the desire path for the vehicle.  
+
+Now that the waypoints are transformed into the vehicle coordinate system, the initial state for the vehicle position and orientation (px, py, psi) can be considered to be zeros (see line 122 to 124). Using the zero-order term of the polynormial function created, the cte can be calculated since it represent the cte at the current vehicle position.  The orientation of the vehicle is the tangential slope value at the current vehicle position, therefore the negative arc tangent of the second term in the polynormial will provide the appropriate value.  These are implemented in line 125 - 126 of main.cpp.
 
 ### Model Predictive Control with Latency
+
 
 
 
