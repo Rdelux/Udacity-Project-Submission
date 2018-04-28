@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/MPC_1.png "MPC"
-[image2]: ./images/state.png "state"
+[image2]: ./images/state.png "Update equations"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
@@ -43,6 +43,18 @@ The actuator constraints include:
 The update equations from the kinematic model that describe the next state are listed below:
 
 ![alt text][image2]
+
+In addition to the model, one must define the error between the desire state and the current state so that we can control the vehicle to follow a specific path.  Once the error is defined, the optimization algorithm can minimize it to zero, making the vehicle to follow the path as much as possible.  The errors for the model are:
+
+| Variable     |    Error    |
+|:--------------|-------------:|
+| cte            | cross track error       |
+| epsi     |    orientation error    |
+
+The equation for 
+
+
+Based on the update equations, vehicle state and the actuator inputs, the cost functions can be calculated
 
 cost function include both state and control input so that we can also control the magnitude and change rate of input
 
