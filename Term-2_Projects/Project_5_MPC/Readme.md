@@ -78,6 +78,10 @@ One of the main advantage of using MPC instead of PID controller is that latency
 
 ### Timestep Length, Elapsed Duration and Optimization Factors Tuning 
 
+Once the model and the algorithm is all defined and set up, the next step is to tune the various hyperparameters in order to achieve the desire behavior from the vehicle simulator.  
+
+The prediction time horizon is an important characteristic that need to be tuned.  In order to do that, the timestep length, dt, and the elapsed duration, N, need to be selected (line 9 & 10 of MPC.cpp).The predicted horizon, T, is the duration over which future predictions are made, therefore N x dt = T.  Since the environment is changing rapidly when driving a vehicle, T should only be a few seconds.  In this case, I aimed to have the vehicle to attain a top speed of 100 km/h, therefore the time horizon should be small since the environment will be changing very fast. The initial T value was set to 0.5 second.  In order to accurately control the vehicle at high speed and to minimize the discretization error, a small dt value was chosen be to 0.05 s, which means N is equal to 10.  While the vehicle was able to smoothly complete several lap in the course, the top speed was only around 70 km/h.  Increasing N to 20 allow the top speed of the vehicle to increase drastically.  However, the vehicle became unstable and crashed.  Instead of increasing N, dt was increased to 0.1 s, and a higher speed was attained without sacraficing stability.
+
 
 
 
@@ -93,13 +97,5 @@ cost function include both state and control input so that we can also control t
 
 ### Results
 
-Manual tuning of the hyperparameters were used in the code implementation.  The proportional coefficient, Kp, was tuned first in order to provide the fundamental restoring steering response to keep the vehicle on the track.  Oscillation and overshoot was observed, therefore the derivative coefficient, Kd, was tuned next.  It is suspected that system bias exist, therefore the integral coefficient was tuned as well.  Once the controller parameters were optimized and successfully control the vehicle to drive around the track, the speed of the vehicle was increased in order to channel my inner Vin Diesel to this project.  By setting the vehicle velocity to 50 mph, the vehicle went off the track during cornering, thus another round of coefficient optimization was done.  The result coefficients required to keep the vehicle on the track at all times and provide a stable trajectory are summarized below: 
-
-| Parameter     |    Value    |
-|:--------------|-------------:|
-| Vehicle speed            |50 mph        |
-| Kp     |    0.1     |
-| Kd | 2.0 |
-| Ki | 0.0001 |
 
 
