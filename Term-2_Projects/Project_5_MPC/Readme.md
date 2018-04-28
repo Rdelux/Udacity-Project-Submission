@@ -70,7 +70,7 @@ The waypoints of the track are given by the lake_track_waypoints.csv file and ar
 
 Using the polyfit() function, a third order polynomial curve can be created using the transformed waypoints.  This curve identify the desire path for the vehicle.  
 
-Now that the waypoints are transformed into the vehicle coordinate system, the initial state for the vehicle position and orientation (px, py, psi) can be considered to be zeros (see line 122 to 124). Using the zero-order term of the polynormial function created, the cte can be calculated since it represent the cte at the current vehicle position.  The orientation of the vehicle is the tangential slope value at the current vehicle position, therefore the negative arc tangent of the second term in the polynormial will provide the appropriate value.  These are implemented in line 125 - 126 of main.cpp.
+Now that the waypoints are transformed into the vehicle coordinate system, the initial state for the vehicle position and orientation (px, py, psi) can be considered to be zeros (see line 122 to 124). Using the zero-order term of the polynormial function created, the cte can be calculated since it represent the cte at the current vehicle position.  The orientation of the vehicle, or the heading, is the tangential slope value at the current vehicle position, therefore the negative arc tangent of the second term in the polynormial will provide the appropriate value.  These are implemented in line 125 - 126 of main.cpp.
 
 ### Model Predictive Control with Latency
 
