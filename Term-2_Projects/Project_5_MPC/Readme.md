@@ -27,12 +27,15 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 ### Polynomial Fitting and MPC Preprocessing
 
 
+### Model Predictive Control with Latency
+
+
 
 ### Timestep Length, Elapsed Duration and Optimization Factors Tuning 
 
 
 
-#### Model Predictive Control with Latency
+
 
 
 
