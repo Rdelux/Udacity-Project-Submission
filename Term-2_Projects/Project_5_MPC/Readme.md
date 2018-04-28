@@ -84,6 +84,8 @@ The prediction time horizon is an important characteristic that need to be tuned
 
 In order to control the vehicle performance around the track, optimization algorithm needs to be used.  An open-source software package, Interior Point OPTimizer or Ipopt, was used to handle a large scale non-linear optimization problem.  Ipopt needs to jacobians and hessians for computation, therefore CppAD was used to perform automatic differentiation.  Weighting factors need to be defined in order to tune the vehicle behaviour.  The criteria for tuning is to be safely drive the vehicle around the track once while attaining the desired top speed, which was set to 100 km/h (this is a self-inflicted goal).  The faster the vehicle is, the more responsive that the actuation needs to be.  However, if the actuations are too responsive, overshooting may happened and the vehicle performance become unstable.  Sets of parameters were tested in a trail-and-error passes, and their the top-speed attained is recorded in the table below:
 
+Initial parameter set:
+
 | Tuning Parameters     | Variable | Value    |
 |:--------------|-------------|----------------:|
 | Reference CTE           | ref_cte        | 0    |
@@ -96,9 +98,40 @@ In order to control the vehicle performance around the track, optimization algor
 | Throttle Weighting Factor      |    acc_weight    | 50    |
 | Steering Angle Change Weighting Factor           | delta_change_weight        | 2500000    |
 | Throttle Change Weighting Factor      |    acc_change_weight    | 5000    |
-| Stability |   Top Speed |
-|------------------------------------------------|----------------------------------------------|
-| Stable | 88 Km/h |
+| Performance: Stable |   Top Speed: 88 Km/h |
+
+Modified parameter set (still can't attain desired speed):
+
+| Tuning Parameters     | Variable | Value    |
+|:--------------|-------------|----------------:|
+| Reference CTE           | ref_cte        | 0    |
+| Reference Error psi     |    ref_epsi    | 0    |
+| Reference Velocity           | ref_v          | 120  |
+| CTE Weighting Factor     |    cte_weight    | 1000    |
+| psi Error Weighting Factor            | epsi_weight        | 1000    |
+| Velocity Weighting Factor      |    v_weight    | 1    |
+| Steering Angle Weighting Factor           | delta_weight        | 50    |
+| Throttle Weighting Factor      |    acc_weight    | 35    |
+| Steering Angle Change Weighting Factor           | delta_change_weight        | 3000000    |
+| Throttle Change Weighting Factor      |    acc_change_weight    | 5000    |
+| Performance: Stable |   Top Speed: 98 Km/h |
+
+Final parameter set:
+
+| Tuning Parameters     | Variable | Value    |
+|:--------------|-------------|----------------:|
+| Reference CTE           | ref_cte        | 0    |
+| Reference Error psi     |    ref_epsi    | 0    |
+| Reference Velocity           | ref_v          | 120  |
+| CTE Weighting Factor     |    cte_weight    | 800    |
+| psi Error Weighting Factor            | epsi_weight        | 800    |
+| Velocity Weighting Factor      |    v_weight    | 1    |
+| Steering Angle Weighting Factor           | delta_weight        | 50    |
+| Throttle Weighting Factor      |    acc_weight    | 50    |
+| Steering Angle Change Weighting Factor           | delta_change_weight        | 3500000    |
+| Throttle Change Weighting Factor      |    acc_change_weight    | 4000    |
+| Performance: Stable |   Top Speed: 106 Km/h |
+
 
 
 
