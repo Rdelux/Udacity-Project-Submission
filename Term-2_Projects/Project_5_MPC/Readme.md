@@ -39,7 +39,9 @@ The actuator constraints include:
 | delta            | steering angle       |
 | acc     |    acceleration or throttle    |
 
+The update equations using the kinematic model 
 
+cost function include both state and control input so that we can also control the magnitude and change rate of input
 
 
 ### Polynomial Fitting and MPC Preprocessing
