@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/MPC_1.png "MPC"
-[image2]: ./images/state.png "state" style="width: 200px;"
+[image2]: ./images/state.png "state"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
