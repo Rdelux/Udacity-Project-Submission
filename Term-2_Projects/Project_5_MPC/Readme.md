@@ -97,7 +97,7 @@ In order to control the vehicle performance around the track, optimization algor
 | Steering Angle Change Weighting Factor           | delta_change_weight        | 2500000    |
 | Throttle Change Weighting Factor      |    acc_change_weight    | 5000    |
 | Stability |   Top Speed |
-|------------------------------------------|--------------------------------------------|
+|------------------------------------------------|----------------------------------------------|
 | Stable | 88 Km/h |
 
 
