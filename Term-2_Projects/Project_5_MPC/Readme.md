@@ -9,13 +9,9 @@ The goals / steps of this project are the following:
 * Find the optimized timestep length, elasped duration and different weighting factors for state control
 * The MPC should be able to handle a 100 millisecond of latency
 
-
 [//]: # (Image References)
 
 [image1]: ./images/High_Speed_Cornering.png "HSC"
-[image2]: ./images/Recovering.png "Recover"
-
-
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
