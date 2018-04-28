@@ -82,6 +82,23 @@ Once the model and the algorithm is all defined and set up, the next step is to 
 
 The prediction time horizon is an important characteristic that need to be tuned.  In order to do that, the timestep length, dt, and the elapsed duration, N, need to be selected (line 9 & 10 of MPC.cpp).The predicted horizon, T, is the duration over which future predictions are made, therefore N x dt = T.  Since the environment is changing rapidly when driving a vehicle, T should only be a few seconds.  In this case, I aimed to have the vehicle to attain a top speed of 100 km/h, therefore the time horizon should be small since the environment will be changing very fast. The initial T value was set to 0.5 second.  In order to accurately control the vehicle at high speed and to minimize the discretization error, a small dt value was chosen be to 0.05 s, which means N is equal to 10.  While the vehicle was able to smoothly complete several lap in the course, the top speed was only around 70 km/h.  Increasing N to 20 allow the top speed of the vehicle to increase drastically.  However, the vehicle became unstable and crashed.  Instead of increasing N, dt was increased to 0.1 s, and a higher speed was attained without sacraficing stability.
 
+In order to control the vehicle performance around the track, optimization algorithm needs to be used.  An open-source software package, Interior Point OPTimizer or Ipopt, was used to handle a large scale non-linear optimization problem.  Ipopt needs to jacobians and hessians for computation, therefore CppAD was used to perform automatic differentiation.  Weighting factors need to be defined in order to tune the vehicle behaviour.  The criteria for tuning is to be safely drive the vehicle around the track once while attaining the desired top speed, which was set to 100 km/h (this is a self-inflicted goal).  The faster the vehicle is, the more responsive that the actuation needs to be.  However, if the actuations are too responsive, overshooting may happened and the vehicle performance become unstable.  Sets of parameters were tested in a trail-and-error passes, and their the top-speed attained is recorded in the table below:
+
+| Tuning Parameters     | Variable | Value    |
+|:--------------|-------------|----------------:|
+| Reference CTE           | ref_cte        | 0    |
+| Reference Error psi     |    ref_epsi    | 0    |
+| Reference Velocity           | ref_v          | 120  |
+| CTE Weighting Factor     |    cte_weight    | 1000    |
+| psi Error Weighting Factor            | epsi_weight        | 1000    |
+| Velocity Weighting Factor      |    v_weight    | 1    |
+| Steering Angle Weighting Factor           | delta_weight        | 50    |
+| Throttle Weighting Factor      |    acc_weight    | 50    |
+| Steering Angle Change Weighting Factor           | delta_change_weight        | 2500000    |
+| Throttle Change Weighting Factor      |    acc_change_weight    | 5000    |
+| Stability |   Top Speed |
+|:--------------|----------------:|
+| Stable | 88 Km/h |
 
 
 
