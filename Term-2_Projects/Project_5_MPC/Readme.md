@@ -46,7 +46,7 @@ The update equations from the kinematic model that describe the next state are l
 
 ![alt text][image2]
 
-These are implemented in line 130 - 133 of main.cpp
+These are implemented in line 146 - 149 of MPC.cpp
 
 In addition to the model, one must define the error between the desire state and the current state so that we can control the vehicle to follow a specific path.  Once the error is defined, the optimization algorithm can minimize it to zero, making the vehicle to follow the path as much as possible.  The errors for the model are:
 
@@ -60,7 +60,7 @@ The equation for the aforementioned errors are:
 ![alt text][image3]
 ![alt text][image4]
 
-These error will be used to define the cost function for optimization and they are implemented in line 134 - 135 of main.cpp
+These error will be used to define the cost function for optimization and they are implemented in line 150 - 151 of MPC.cpp
 
 Once the model is defined, the next step is fit a polynormial to define the desire path and preprocess the variables for the MPC algorithm.
 
@@ -74,10 +74,10 @@ Now that the waypoints are transformed into the vehicle coordinate system, the i
 
 ### Model Predictive Control with Latency
 
-
-
+One of the main advantage of using MPC instead of PID controller is that latency caused by actuation and inertia of the vehicle can be taken into account when controlling a vehicle.  In this project, it was assumed that there's a 100 millisecond latency between the control command and the actuation response.  In order to implement latency into the model, the delta t value, dt, was set equal to the latency and the delay state was calculated.  This was implemented in line 130 - 135 of main.cpp, using the same update equations mentioned earlier.  This created a predicted state, 100 millisecond into the future, and this state is fed into the the mpc solver in line 139 and 141 of main.cpp.
 
 ### Timestep Length, Elapsed Duration and Optimization Factors Tuning 
+
 
 
 
