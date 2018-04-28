@@ -11,14 +11,36 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/High_Speed_Cornering.png "HSC"
+[image1]: ./MPC_1.png "MPC"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
 ---
 
+![alt text][image1]
+
 ### The Model
- 
+
+In order to control the vehicle in the simulator to drive itself autonomously around the track, a model predictive control (MPC) approach was used.  This approach essentially turn a control problem into an optimization problem.  The optimization parameters include the state of the vehicle and the actuator constraints.  A kinematic model was used to model the dynamic behavior of the vehicle since it is more tractable than the dynamic model approach and it is simpler to implement.  The update equations from the kinematic model along with the state and actuator constraints made up the "model" that is described in this section.
+
+The state of the vehicle includes the following parameters:
+
+| Variable     |    State    |
+|:--------------|-------------:|
+| px            | x-position of vehicle in global coordinate       |
+| py     |    y-position of vehicle in global coordinate    |
+| psi | orientation of vehicle |
+| v | current vehicle speed  |
+
+The actuator constraints include:
+
+| Variable     |    Actuator    |
+|:--------------|-------------:|
+| delta            | steering angle       |
+| acc     |    acceleration or throttle    |
+
+
+
 
 ### Polynomial Fitting and MPC Preprocessing
 
@@ -35,7 +57,7 @@ The Rubric Points are listed in this following [link](https://review.udacity.com
 
 
 
-![alt text][image1]
+
 
 
 
