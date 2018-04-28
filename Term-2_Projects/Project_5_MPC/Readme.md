@@ -132,20 +132,4 @@ Final parameter set:
 | Throttle Change Weighting Factor      |    acc_change_weight    | 4000    |
 | Performance: Stable |   Top Speed: 106 Km/h |
 
-
-
-
-
-
-
-
-Based on the update equations, vehicle state and the actuator inputs, the cost functions can be calculated
-
-cost function include both state and control input so that we can also control the magnitude and change rate of input
-
-
-
-### Results
-
-
-
+Note: I need to specify the library location for ipopt in order the the program to compile.  This was done in the CMakeLists.txt file, which is included in this repo
