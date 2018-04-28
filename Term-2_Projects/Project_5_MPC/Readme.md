@@ -40,9 +40,9 @@ The actuator constraints include:
 | delta            | steering angle       |
 | acc     |    acceleration or throttle    |
 
-The kinematic model update equations that are used describe the next state are listed here:
+The update equations from the kinematic model that describe the next state are listed below:
 
-![alt text][image2]
+![alt text][image2 =200x]
 
 cost function include both state and control input so that we can also control the magnitude and change rate of input
 
