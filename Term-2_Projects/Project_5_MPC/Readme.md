@@ -11,7 +11,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./MPC_1.png "MPC"
+[image1]: ./images/MPC_1.png "MPC"
+[image2]: ./images/state.png "state"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
@@ -39,7 +40,9 @@ The actuator constraints include:
 | delta            | steering angle       |
 | acc     |    acceleration or throttle    |
 
-The update equations using the kinematic model 
+The kinematic model update equations that are used describe the next state are listed here:
+
+![alt text][image2]
 
 cost function include both state and control input so that we can also control the magnitude and change rate of input
 
