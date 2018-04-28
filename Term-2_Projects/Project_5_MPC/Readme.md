@@ -13,6 +13,8 @@ The goals / steps of this project are the following:
 
 [image1]: ./images/MPC_1.png "MPC"
 [image2]: ./images/state.png "Update equations"
+[image3]: ./images/cte.png "cross track error"
+[image4]: ./images/orientationError.png "orientation error"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
@@ -51,7 +53,10 @@ In addition to the model, one must define the error between the desire state and
 | cte            | cross track error       |
 | epsi     |    orientation error    |
 
-The equation for 
+The equation for the aforementioned errors are:
+
+![alt text][image3]
+![alt text][image4]
 
 
 Based on the update equations, vehicle state and the actuator inputs, the cost functions can be calculated
