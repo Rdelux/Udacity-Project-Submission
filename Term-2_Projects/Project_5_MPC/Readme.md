@@ -46,6 +46,8 @@ The update equations from the kinematic model that describe the next state are l
 
 ![alt text][image2]
 
+These are implemented in line 130 - 133 of main.cpp
+
 In addition to the model, one must define the error between the desire state and the current state so that we can control the vehicle to follow a specific path.  Once the error is defined, the optimization algorithm can minimize it to zero, making the vehicle to follow the path as much as possible.  The errors for the model are:
 
 | Variable     |    Error    |
@@ -58,11 +60,9 @@ The equation for the aforementioned errors are:
 ![alt text][image3]
 ![alt text][image4]
 
+These are implemented in line 134 - 135 of main.cpp
 
-Based on the update equations, vehicle state and the actuator inputs, the cost functions can be calculated
-
-cost function include both state and control input so that we can also control the magnitude and change rate of input
-
+Once the model is defined, the next step is fit a polynormial to define the desire path and preprocess the variables for the MPC algorithm.
 
 ### Polynomial Fitting and MPC Preprocessing
 
@@ -79,7 +79,9 @@ cost function include both state and control input so that we can also control t
 
 
 
+Based on the update equations, vehicle state and the actuator inputs, the cost functions can be calculated
 
+cost function include both state and control input so that we can also control the magnitude and change rate of input
 
 
 
