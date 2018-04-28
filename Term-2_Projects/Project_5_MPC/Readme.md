@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/MPC_1.png "MPC"
-[image2]: ./images/state.png "state"
+[image2]: ./images/state.png "state" style="width: 200px;"
 
 The Rubric Points are listed in this following [link](https://review.udacity.com/#!/rubrics/896/view)   
 
@@ -42,7 +42,7 @@ The actuator constraints include:
 
 The update equations from the kinematic model that describe the next state are listed below:
 
-![alt text][image2 =200x]
+![alt text][image2]
 
 cost function include both state and control input so that we can also control the magnitude and change rate of input
 
